@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavbarComp } from "./NavbarComp/NavbarComp";
+import { NavbarMonitor } from "./NbMonitor/NavbarMonitor";
 import { NavbarPhone } from "./NavbarPhone/NavbarPhone";
 import "./navbar.css";
 
@@ -18,7 +18,7 @@ export function NavbarMain() {
 
   return (
     <div className="navbar-main-container">
-      {windowWidth <= 600 ? <NavbarPhone /> : <NavbarComp />}
+      {windowWidth <= 600 ? <NavbarPhone /> : <NavbarMonitor />}
     </div>
   );
 }
