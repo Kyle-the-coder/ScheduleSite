@@ -1,0 +1,76 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #aeaeae;
+}
+
+.main-container {
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  position: relative;
+}
+.main-container,
+.navbar-main-container {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Font1";
+  src: url("./RobotoMono-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Font2";
+  src: url("./Outfit-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font1 {
+  font-family: "Font1", sans-serif;
+}
+
+.font2 {
+  font-family: "Font2", sans-serif;
+}
+
+.f1-5 {
+  font-size: 1.5rem;
+}
+
+.f1-8 {
+  font-size: 1.8rem;
+}
+
+.f2 {
+  font-size: 2rem;
+}
+.f2-5 {
+  font-size: 2.5rem;
+}
+
+.greenText {
+  color: rgb(63, 172, 63);
+}
+
+.orangeText {
+  color: rgb(232, 162, 10);
+}
+
+.f3 {
+  font-size: 3rem;
+}
+.f3-5 {
+  font-size: 3.5rem;
+}
+
+.f4 {
+  font-size: 4rem;
+}
+
+.m0 {
+  margin: 0;
+}
