@@ -10,13 +10,13 @@ export function LandingPagePhone() {
         <img src={bgImage} className="landing-page-phone-bg-image" />
         <div className="vignette-overlay"></div>
         <div className="landing-page-phone-quote-container">
-          <h1 className="f3-5 m0">
+          <h1 className="f4 m0">
             Exclusive <span className="pinkText"> PT </span> Appointments
           </h1>
         </div>
 
         <div className="landing-page-phone-quote-container">
-          <h4 className="f1-5 m0">
+          <h4 className="f2-5 m0">
             Ease pain. Build strength. Gain confidence
           </h4>
         </div>
