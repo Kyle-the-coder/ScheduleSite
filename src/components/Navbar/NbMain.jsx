@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavbarMonitor } from "./NbMonitor/NavbarMonitor";
-import { NavbarPhone } from "./NavbarPhone/NavbarPhone";
-import "./navbar.css";
+import { NavbarPhone } from "./NbPhone/NavbarPhone";
+import "./nbmain.css";
 
 export function NavbarMain() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

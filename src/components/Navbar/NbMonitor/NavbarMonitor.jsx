@@ -1,5 +1,5 @@
 import logo from "../../../assets/solarLogo.jpeg";
-import "./navbarcomp.css";
+import "./navbarmonitor.css";
 
 export function NavbarMonitor() {
   const links = [
