@@ -54,7 +54,7 @@
 }
 
 .landing-page-mont-button {
-  padding: 5px 20px 5px 20px;
+  padding: 15px 23px 15px 23px;
   background-color: rgb(250, 196, 249);
   display: flex;
   justify-content: center;
@@ -62,6 +62,7 @@
   border-radius: 0.5rem;
   font-size: 2rem;
   border: none;
+  cursor: pointer;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3),
     inset -3px -3px 5px rgba(0, 0, 0, 0.3);
 }

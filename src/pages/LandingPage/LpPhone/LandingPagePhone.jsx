@@ -7,7 +7,11 @@ export function LandingPagePhone() {
   return (
     <div className="landing-page-phone-main-container">
       <div className="landing-page-opening-container">
-        <img src={bgImage} className="landing-page-phone-bg-image" />
+        <img
+          src={bgImage}
+          className="landing-page-phone-bg-image"
+          alt="Background image of a workout session"
+        />
         <div className="vignette-overlay"></div>
         <div className="landing-page-phone-quote-container">
           <h1 className="f4 m0">
@@ -22,18 +26,29 @@ export function LandingPagePhone() {
         </div>
 
         <div className="landing-page-phone-quote-container">
-          <button className="m0 landing-page-phone-button">
+          <button
+            className="m0 landing-page-phone-button"
+            aria-label="Book an appointment for physical therapy"
+          >
             Book an Appointment
           </button>
         </div>
 
         <div className="landing-page-top-award-container">
           <h4 className="font1 top-award-text">
-            Sabrina is a top-tier trainer who exceeded my expectations and
+            "Sabrina is a top-tier trainer who exceeded my expectations and
             helped me get my life back." -Wendy H.
           </h4>
-          <img src={top10} className="top-award-image" />
-          <img src={quotes} className="quotes-image" />
+          <img
+            src={top10}
+            className="top-award-image"
+            alt="Top 10 award badge"
+          />
+          <img
+            src={quotes}
+            className="quotes-image"
+            alt="Quotation mark icon"
+          />
         </div>
       </div>
     </div>
