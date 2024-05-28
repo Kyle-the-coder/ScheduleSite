@@ -1,4 +1,4 @@
-.navbar-comp-main-container {
+.navbar-mont-main-container {
   width: 100%;
   height: 20%;
   background-color: white;
@@ -8,7 +8,7 @@
   align-items: center;
 }
 
-.navbar-comp-logo-container {
+.navbar-mont-logo-container {
   width: 100%;
   height: 60%;
   display: flex;
@@ -16,12 +16,13 @@
   align-items: center;
 }
 
-.navbar-comp-logo {
+.navbar-mont-logo {
   width: 200px;
+  padding: 10px;
   cursor: pointer;
 }
 
-.navbar-comp-link-container {
+.navbar-mont-link-container {
   width: 100%;
   height: 40%;
   display: flex;
@@ -29,13 +30,13 @@
   align-items: center;
 }
 
-.navbar-comp-link {
+.navbar-mont-link {
   width: fit-content;
-  font-family: "Font1", sans-serif;
+  font-family: "Font2", sans-serif;
   cursor: pointer;
 }
 
-.navbar-comp-link:hover {
+.navbar-mont-link:hover {
   text-decoration: underline;
-  color: rgb(21, 194, 136);
+  color: rgb(231, 132, 149);
 }

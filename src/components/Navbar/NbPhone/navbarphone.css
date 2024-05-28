@@ -31,14 +31,17 @@
 
 .navbar-logo {
   z-index: 2;
+  padding: 8px;
+  width: 80px;
 }
 .dropdown-link-name {
-  font-size: 1.2rem;
-  font-family: "Font1", sans-serif;
+  font-size: 1.8rem;
+  font-family: "Font2", sans-serif;
   cursor: pointer;
+  padding: 15px 0px;
   overflow: hidden;
 }
 .dropdown-link-name:hover {
   text-decoration: underline;
-  color: rgb(21, 194, 136);
+  color: rgb(231, 132, 149);
 }

@@ -1,23 +1,22 @@
-import logo from "../../../assets/solarLogo.jpeg";
+import logo from "../../../assets/SabrinaLogoText.png";
 import "./navbarmonitor.css";
 
 export function NavbarMonitor() {
   const links = [
-    { linkName: "About Us" },
-    { linkName: "Product" },
+    { linkName: "About Me" },
     { linkName: "Services" },
-    { linkName: "Locations" },
-    { linkName: "Contact Us" },
+    { linkName: "Schedule" },
+    { linkName: "Contact Me" },
   ];
   return (
-    <div className="navbar-comp-main-container">
-      <div className="navbar-comp-logo-container">
-        <img src={logo} className="navbar-comp-logo" />
+    <div className="navbar-mont-main-container">
+      <div className="navbar-mont-logo-container">
+        <img src={logo} className="navbar-mont-logo" />
       </div>
-      <div className="navbar-comp-link-container">
+      <div className="navbar-mont-link-container">
         {links.map((link, index) => {
           return (
-            <h3 className="navbar-comp-link" key={link.linkName}>
+            <h3 className="navbar-mont-link f1-8" key={link.linkName}>
               {link.linkName}
             </h3>
           );

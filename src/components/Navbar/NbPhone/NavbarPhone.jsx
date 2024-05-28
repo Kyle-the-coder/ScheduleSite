@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import gsap from "gsap";
-import logo from "../../../assets/solarLogo.jpeg";
+import logo from "../../../assets/SabrinaLogo.png";
 import "./navbarphone.css";
 import { useNavigate } from "react-router-dom";
 import LottieAnimation from "../../LottieAnimation";
@@ -67,18 +67,16 @@ export function NavbarPhone() {
   }, [isHamburgerActive]);
 
   const links = [
-    { linkName: "About Us", link: "/aboutUs" },
-    { linkName: "Product" },
+    { linkName: "About Me" },
     { linkName: "Services" },
-    { linkName: "Locations" },
-    { linkName: "Contact Us" },
+    { linkName: "Schedule" },
+    { linkName: "Contact Me" },
   ];
 
   return (
     <div className="navbar-phone-main-container">
       <img
         src={logo}
-        width="200"
         className="navbar-logo"
         onClick={() => handleHomeNavigate()}
       />

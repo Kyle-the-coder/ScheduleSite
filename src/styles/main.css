@@ -57,7 +57,11 @@ body {
 }
 
 .orangeText {
-  color: rgb(232, 162, 10);
+  color: rgb(247, 191, 70);
+}
+
+.pinkText {
+  color: pink;
 }
 
 .f3 {

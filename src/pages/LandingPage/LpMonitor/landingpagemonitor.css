@@ -1,0 +1,8 @@
+.landing-page-comp-main-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 500px;
+  align-items: center;
+  background-color: rgb(44, 107, 162);
+}
