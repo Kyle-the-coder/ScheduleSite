@@ -2,7 +2,13 @@ import "./landingpagemonitor.css";
 import bgImage from "../../../assets/workout.jpg";
 import top10 from "../../../assets/top-10.png";
 import quotes from "../../../assets/circle.png";
+import { useNavigate } from "react-router-dom";
 export function LandingPageMonitor() {
+  const navigate = useNavigate();
+
+  function handleBookApptButton() {
+    navigate("/schedule");
+  }
   return (
     <div className="landing-page-mont-main-container">
       <div className="landing-page-mont-opening-container">
@@ -22,7 +28,10 @@ export function LandingPageMonitor() {
         </div>
 
         <div className="landing-page-mont-quote-container">
-          <button className="m0 landing-page-mont-button">
+          <button
+            onClick={() => handleBookApptButton()}
+            className="m0 landing-page-mont-button"
+          >
             Book an Appointment
           </button>
         </div>
