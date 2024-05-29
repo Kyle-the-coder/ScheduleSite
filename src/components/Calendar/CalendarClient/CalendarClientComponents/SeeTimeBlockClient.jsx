@@ -11,7 +11,6 @@ export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
     useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [timeBlock, setTimeBlock] = useState(null);
-  const [isTbSelected, setIsTbSelected] = useState(false);
 
   function handleAddTimeBlockModal() {
     setIsAddScheduleModalActive(true);
@@ -70,7 +69,6 @@ export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
     <div className="see-timeblock-client-main-container">
       <div className="timeblock-client-display-container">
         <div className="tbc-display-top">
-          <h1>Schedule for:</h1>
           <h1>{dateOfEvent}</h1>
         </div>
         <div className="tbc-sched-container">

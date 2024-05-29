@@ -11,6 +11,10 @@ export function NavbarMonitor() {
     }
   }
 
+  function handleHomeNavigation() {
+    navigate("/");
+  }
+
   const links = [
     { linkName: "About Me", link: "/aboutMe" },
     { linkName: "Services" },
@@ -20,7 +24,11 @@ export function NavbarMonitor() {
   return (
     <div className="navbar-mont-main-container">
       <div className="navbar-mont-logo-container">
-        <img src={logo} className="navbar-mont-logo" />
+        <img
+          src={logo}
+          className="navbar-mont-logo"
+          onClick={() => handleHomeNavigation()}
+        />
       </div>
       <div className="navbar-mont-link-container">
         {links.map((link, index) => {
