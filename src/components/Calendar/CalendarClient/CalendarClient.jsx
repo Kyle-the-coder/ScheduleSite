@@ -9,8 +9,8 @@ import {
   isSameMonth,
   isToday,
 } from "date-fns";
-import "./styles/calendarclient.css";
-import { SeeTimeBlocksClient } from "./components/client/SeeTimeBlockClient";
+import "./CalendarClientStyles/calendarclient.css";
+import { SeeTimeBlocksClient } from "./CalendarClientComponents/SeeTimeBlockClient";
 
 const CalendarClient = () => {
   const [fullScheduleList, setFullScheduleList] = useState([]);

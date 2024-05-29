@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { parse, format } from "date-fns";
-import close from "../../assets/close.png";
-import "./clientstyles/booknowform.css";
+import close from "../../../../assets/close.png";
 import gsap from "gsap";
+import "../CalendarClientStyles/booknowform.css";
 
 export function BookNowForm({
   dateOfEvent,

@@ -1,7 +1,7 @@
-import "./clientstyles/seetimeblockclient.css";
 import { useEffect, useState } from "react";
 import { parse, format } from "date-fns";
 import { BookNowForm } from "./BookNowForm";
+import "../CalendarClientStyles/seetimeblockclient.css";
 
 export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
   const [fullScheduleList, setFullScheduleList] = useState([]);
