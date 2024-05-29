@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { NavLayout } from "./layouts/NavLayout";
 import { ErrorLayout } from "./layouts/ErrorLayout";
 import { landingRoute } from "./pages/LandingPage/LpMain";
+import { scheduleRoute } from "./pages/SchedulePage/SpMain";
 
 export const router = createBrowserRouter([
   {
@@ -10,7 +11,7 @@ export const router = createBrowserRouter([
     errorElement: <ErrorLayout />,
     children: [
       { path: "/", ...landingRoute },
-      //   { path: "/aboutUs", ...aboutUsRoute },
+      { path: "/schedule", ...scheduleRoute },
     ],
   },
 ]);

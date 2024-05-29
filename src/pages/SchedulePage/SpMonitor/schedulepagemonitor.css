@@ -1,0 +1,8 @@
+.schedule-page-mont-main-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  background-color: rgb(44, 107, 162);
+  margin-bottom: 10%;
+}
