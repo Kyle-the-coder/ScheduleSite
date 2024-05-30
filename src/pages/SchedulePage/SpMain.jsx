@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./spmain.css";
 import { SchedulePageMonitor } from "./SpMonitor/SchedulePageMonitor";
+import { SchedulePagePhone } from "./SpPhone/SchedulePagePhone";
 
 function SchedulePageMain() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -17,7 +18,7 @@ function SchedulePageMain() {
 
   return (
     <div className="schedule-page-main-container">
-      {windowWidth <= 600 ? "" : <SchedulePageMonitor />}
+      {windowWidth <= 600 ? <SchedulePagePhone /> : <SchedulePageMonitor />}
     </div>
   );
 }

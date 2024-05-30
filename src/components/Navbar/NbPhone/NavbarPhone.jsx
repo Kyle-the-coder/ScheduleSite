@@ -40,6 +40,26 @@ export function NavbarPhone() {
           setIsHamburgerActive(false);
         },
       });
+    } else if (link === "/schedule") {
+      navigate(link);
+      gsap.to(".navbar-phone-dropdown-main-container", {
+        x: "-100%",
+        duration: 1.4,
+        ease: "power4.in",
+        onComplete: () => {
+          setIsHamburgerActive(false);
+        },
+      });
+    } else if (link === "/services") {
+      navigate(link);
+      gsap.to(".navbar-phone-dropdown-main-container", {
+        x: "-100%",
+        duration: 1.4,
+        ease: "power4.in",
+        onComplete: () => {
+          setIsHamburgerActive(false);
+        },
+      });
     }
   }
 
@@ -68,8 +88,8 @@ export function NavbarPhone() {
 
   const links = [
     { linkName: "About Me", link: "/aboutme" },
-    { linkName: "Services" },
-    { linkName: "Schedule" },
+    { linkName: "Services", link: "/services" },
+    { linkName: "Schedule", link: "/schedule" },
     { linkName: "Contact Me" },
   ];
 
