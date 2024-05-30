@@ -8,6 +8,8 @@ export function NavbarMonitor() {
   function handleNavigation(link) {
     if (link === "/schedule") {
       navigate(link);
+    } else if (link === "/aboutme") {
+      navigate(link);
     }
   }
 
@@ -16,7 +18,7 @@ export function NavbarMonitor() {
   }
 
   const links = [
-    { linkName: "About Me", link: "/aboutMe" },
+    { linkName: "About Me", link: "/aboutme" },
     { linkName: "Services" },
     { linkName: "Schedule", link: "/schedule" },
     { linkName: "Contact Me" },

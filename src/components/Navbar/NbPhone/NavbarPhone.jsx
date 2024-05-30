@@ -30,7 +30,7 @@ export function NavbarPhone() {
 
   function handleNavigate(link) {
     setIsAnimtionActive(false);
-    if (link === "/aboutUs") {
+    if (link === "/aboutme") {
       navigate(link);
       gsap.to(".navbar-phone-dropdown-main-container", {
         x: "-100%",
@@ -67,7 +67,7 @@ export function NavbarPhone() {
   }, [isHamburgerActive]);
 
   const links = [
-    { linkName: "About Me" },
+    { linkName: "About Me", link: "/aboutme" },
     { linkName: "Services" },
     { linkName: "Schedule" },
     { linkName: "Contact Me" },
