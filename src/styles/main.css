@@ -77,3 +77,12 @@ body {
 .m0 {
   margin: 0;
 }
+
+.banner {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  background-color: aquamarine;
+  justify-content: center;
+  align-items: center;
+}

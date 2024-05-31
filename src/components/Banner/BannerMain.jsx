@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { BannerMonitor } from "./BannerMonitor/BannerMonitor";
+import { BannerPhone } from "./BannerPhone/BannerPhone";
 
 export function BannerMain({ bannerImg }) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -15,7 +17,11 @@ export function BannerMain({ bannerImg }) {
 
   return (
     <div className="banner-main-container">
-      {windowWidth <= 600 ? <SchedulePagePhone /> : <SchedulePageMonitor />}
+      {windowWidth <= 600 ? (
+        <BannerPhone bannerImg={bannerImg} />
+      ) : (
+        <BannerMonitor bannerImg={bannerImg} />
+      )}
     </div>
   );
 }
