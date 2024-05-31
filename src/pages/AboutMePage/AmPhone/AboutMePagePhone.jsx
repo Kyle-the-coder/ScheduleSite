@@ -1,4 +1,3 @@
-import { BannerMain } from "../../../components/Banner/BannerMain";
 import weights from "../../../assets/weightsBlue.jpg";
 import "./aboutmepagephone.css";
 import { BannerPhone } from "../../../components/Banner/BannerPhone/BannerPhone";

@@ -1,10 +1,10 @@
-import { BannerMain } from "../../../components/Banner/BannerMain";
-import weights from "../../../assets/weightsAndScale.jpg";
+import weights from "../../../assets/yogaMat.jpg";
 import "./servicespagemonitor.css";
+import { BannerMonitor } from "../../../components/Banner/BannerMonitor/BannerMonitor";
 export function ServicesPageMonitor() {
   return (
     <div className="services-page-mont-main-container">
-      <BannerMain bannerImg={weights} />
+      <BannerMonitor bannerImg={weights} />
       <h1>services page monitor</h1>
     </div>
   );
