@@ -90,6 +90,9 @@ body {
 .f1-2 {
   font-size: 1.2rem;
 }
+.mr-5 {
+  margin-right: 5%;
+}
 .banner {
   width: 100%;
   height: fit-content;

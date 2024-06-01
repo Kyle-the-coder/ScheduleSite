@@ -23,8 +23,27 @@
   justify-content: space-evenly;
   align-items: center;
 }
+.footer-socials-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .footer-icon {
   width: 40px;
   height: 40px;
+}
+.footer-social-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.footer-logo {
+  width: 300px;
+  height: 300px;
+}
+
+.pointer {
+  cursor: pointer;
 }
