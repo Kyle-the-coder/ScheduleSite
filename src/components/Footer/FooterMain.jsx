@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import "./ammain.css";
-import { AboutMePagePhone } from "./AmPhone/AboutMePagePhone";
-import { AboutMePageMonitor } from "./AmMonitor/AboutMePageMonitor";
+import "./footermain.css";
+import { FooterPhone } from "./FtPhone/FooterPhone";
+import { FooterMonitor } from "./FtMonitor/FooterMonitor";
 
-function AboutMePageMain() {
+export function FooterMain() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -17,12 +17,8 @@ function AboutMePageMain() {
   }, []);
 
   return (
-    <div className="about-me-page-main-container">
-      {windowWidth <= 600 ? <AboutMePagePhone /> : <AboutMePageMonitor />}
+    <div className="services-page-main-container">
+      {windowWidth <= 600 ? <FooterPhone /> : <FooterMonitor />}
     </div>
   );
 }
-
-export const aboutMeRoute = {
-  element: <AboutMePageMain />,
-};
