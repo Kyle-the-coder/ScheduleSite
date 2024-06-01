@@ -1,6 +1,8 @@
 import { Outlet, useNavigation } from "react-router-dom";
 import { NavbarMain } from "../components/Navbar/NbMain";
 import "../styles/main.css";
+import { FooterMonitor } from "../components/Footer/FtMonitor/FooterMonitor";
+import { FooterMain } from "../components/Footer/FooterMain";
 export function NavLayout() {
   const { state } = useNavigation();
 
@@ -14,6 +16,7 @@ export function NavLayout() {
           <Outlet />
         </div>
       )}
+      <FooterMain />
     </div>
   );
 }

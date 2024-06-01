@@ -17,7 +17,7 @@ export function FooterMain() {
   }, []);
 
   return (
-    <div className="services-page-main-container">
+    <div className="footer-main-container">
       {windowWidth <= 600 ? <FooterPhone /> : <FooterMonitor />}
     </div>
   );
