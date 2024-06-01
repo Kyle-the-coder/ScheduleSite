@@ -2,14 +2,15 @@
   width: 100%;
   display: flex;
   padding: 10px;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 5%;
   background-color: rgb(255, 236, 252);
 }
 
 .footer-monitor-info-container {
-  width: 30%;
+  width: 35%;
+  background-color: aqua;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
