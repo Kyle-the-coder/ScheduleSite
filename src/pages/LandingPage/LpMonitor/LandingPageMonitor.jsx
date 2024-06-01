@@ -1,6 +1,6 @@
 import "./landingpagemonitor.css";
 import bgImage from "../../../assets/workout.jpg";
-import top10 from "../../../assets/top-10.png";
+import top10 from "../../../assets/review.png";
 import quotes from "../../../assets/circle.png";
 import { useNavigate } from "react-router-dom";
 export function LandingPageMonitor() {

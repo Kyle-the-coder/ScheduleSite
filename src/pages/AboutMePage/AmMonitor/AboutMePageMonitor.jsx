@@ -4,7 +4,7 @@ import { BannerMonitor } from "../../../components/Banner/BannerMonitor/BannerMo
 export function AboutMePageMonitor() {
   return (
     <div className="about-me-page-mont-main-container">
-      <BannerMonitor bannerImg={weights} />
+      <BannerMonitor bannerImg={weights} bannerTxt="About Me" />
       <h1>about me page mont</h1>
     </div>
   );
