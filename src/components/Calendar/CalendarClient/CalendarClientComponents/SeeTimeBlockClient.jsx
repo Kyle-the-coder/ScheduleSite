@@ -69,7 +69,7 @@ export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
     <div className="see-timeblock-client-main-container">
       <div className="timeblock-client-display-container">
         <div className="tbc-display-top">
-          <h1>{dateOfEvent}</h1>
+          <h1 className="font2">{dateOfEvent}</h1>
         </div>
         <div className="tbc-sched-container">
           {dayScheduleList.length === 0 ? (
