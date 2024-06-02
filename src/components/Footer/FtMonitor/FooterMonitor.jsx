@@ -10,7 +10,7 @@ export function FooterMonitor() {
     <div className="footer-monitor-main-container">
       <div className="footer-monitor-info-container">
         <h1 className="m0 font3 f2">Making a difference</h1>
-        <h4 className="font2 f1-2 m0">
+        <h4 className="font2 f1-2 ">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
           lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod
           malesuada. Nulla facilisi.
