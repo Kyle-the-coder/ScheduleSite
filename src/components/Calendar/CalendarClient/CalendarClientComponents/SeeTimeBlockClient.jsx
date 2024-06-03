@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { parse, format } from "date-fns";
 import { BookNowForm } from "./BookNowForm";
 import "../CalendarClientStyles/seetimeblockclient.css";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../../../firebase";
 
 export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
   const [fullScheduleList, setFullScheduleList] = useState([]);
@@ -21,45 +23,67 @@ export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
   }
 
   useEffect(() => {
-    const searchLocalStorage = () => {
-      const keys = [];
-      for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
-        keys.push(key);
-        setFullScheduleList(keys);
+    const fetchFullScheduleList = async () => {
+      try {
+        const docRef = doc(db, "DataStorage", "appointmentInfo");
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          const scheduleList = Object.keys(data).map((key) =>
+            format(parse(key, "yyyy-MM-dd", new Date()), "yyyy-MM-dd")
+          );
+          setFullScheduleList(scheduleList);
+        } else {
+          console.log("No such document!");
+        }
+      } catch (error) {
+        console.error("Error fetching document: ", error);
       }
     };
-    searchLocalStorage();
-  }, [isAddScheduleModalActive]);
+    fetchFullScheduleList();
+  }, [fullScheduleList]);
 
+  // Inside the component function
   useEffect(() => {
-    const updateDayScheduleList = () => {
+    console.log("hello");
+    const updateDayScheduleList = async () => {
       if (dateOfEvent) {
-        if (fullScheduleList.includes(dateOfEvent)) {
-          const eventList = localStorage.getItem(dateOfEvent);
-          if (eventList) {
-            try {
-              const parsedList = JSON.parse(eventList);
-              const events = parsedList.sort((a, b) => {
+        try {
+          const docRef = doc(db, "DataStorage", "appointmentInfo");
+          const docSnap = await getDoc(docRef);
+          if (docSnap.exists()) {
+            const data = docSnap.data();
+            // Reformat dateOfEvent to "yyyy-MM-dd"
+            const formattedDate = format(dateOfEvent, "yyyy-MM-dd");
+            // Check if data has a property corresponding to the formatted dateOfEvent
+            if (data.hasOwnProperty(formattedDate)) {
+              // Get the schedule list corresponding to the formatted dateOfEvent
+              const scheduleList = data[formattedDate];
+              // Sort the schedule list by start time
+              const sortedScheduleList = scheduleList.sort((a, b) => {
                 const timeA = parse(a.startTime, "HH:mm", new Date());
                 const timeB = parse(b.startTime, "HH:mm", new Date());
                 return timeA - timeB;
               });
-              setDayScheduleList(events);
+              // Update the state variables
+              setDayScheduleList(sortedScheduleList);
               setIsSchedLoaded(true);
-            } catch (error) {
-              console.error("Error parsing JSON data from localStorage", error);
+            } else {
+              // If the dateOfEvent does not exist in the data, set dayScheduleList to an empty array
+              setDayScheduleList([]);
+              setIsSchedLoaded(true);
             }
+          } else {
+            console.log("No such document!");
           }
-        } else {
-          setDayScheduleList([]);
-          setIsSchedLoaded(true);
+        } catch (error) {
+          console.error("Error fetching document: ", error);
         }
       }
     };
 
     updateDayScheduleList();
-  }, [fullScheduleList, dateOfEvent]);
+  }, [dateOfEvent, isAddScheduleModalActive]);
 
   useEffect(() => {
     setTimeBlock("");

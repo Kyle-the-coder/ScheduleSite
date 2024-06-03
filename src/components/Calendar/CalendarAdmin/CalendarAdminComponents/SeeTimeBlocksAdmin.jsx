@@ -3,6 +3,8 @@ import tbDelete from "../../../../assets/close.png";
 import { useEffect, useState } from "react";
 import { parse, format } from "date-fns";
 import { AddTimeBlockDisplay } from "./AddTimeBlockAdmin";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { db } from "../../../../firebase";
 
 export function SeeTimeBlocksAdmin({ setUpdateTrigger, dateOfEvent }) {
   const [fullScheduleList, setFullScheduleList] = useState([]);
@@ -18,86 +20,110 @@ export function SeeTimeBlocksAdmin({ setUpdateTrigger, dateOfEvent }) {
   }
 
   useEffect(() => {
-    const searchLocalStorage = () => {
-      const keys = [];
-      for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
-        keys.push(key);
-        setFullScheduleList(keys);
+    const fetchFullScheduleList = async () => {
+      try {
+        const docRef = doc(db, "DataStorage", "appointmentInfo");
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          const scheduleList = Object.keys(data).map((key) =>
+            format(parse(key, "yyyy-MM-dd", new Date()), "yyyy-MM-dd")
+          );
+          setFullScheduleList(scheduleList);
+        } else {
+          console.log("No such document!");
+        }
+      } catch (error) {
+        console.error("Error fetching document: ", error);
       }
     };
-    searchLocalStorage();
-  }, [isAddScheduleModalActive]);
+    fetchFullScheduleList();
+  }, [setFullScheduleList]);
 
   function handleTimeBlockClick(sched) {
     setTimeBlock(sched);
   }
 
+  // Inside the component function
   useEffect(() => {
-    const updateDayScheduleList = () => {
+    console.log("hello");
+    const updateDayScheduleList = async () => {
       if (dateOfEvent) {
-        if (fullScheduleList.includes(dateOfEvent)) {
-          const eventList = localStorage.getItem(dateOfEvent);
-          if (eventList) {
-            try {
-              const parsedList = JSON.parse(eventList);
-              const events = parsedList.sort((a, b) => {
+        try {
+          const docRef = doc(db, "DataStorage", "appointmentInfo");
+          const docSnap = await getDoc(docRef);
+          if (docSnap.exists()) {
+            const data = docSnap.data();
+            // Reformat dateOfEvent to "yyyy-MM-dd"
+            const formattedDate = format(dateOfEvent, "yyyy-MM-dd");
+            // Check if data has a property corresponding to the formatted dateOfEvent
+            if (data.hasOwnProperty(formattedDate)) {
+              // Get the schedule list corresponding to the formatted dateOfEvent
+              const scheduleList = data[formattedDate];
+              // Sort the schedule list by start time
+              const sortedScheduleList = scheduleList.sort((a, b) => {
                 const timeA = parse(a.startTime, "HH:mm", new Date());
                 const timeB = parse(b.startTime, "HH:mm", new Date());
                 return timeA - timeB;
               });
-              setDayScheduleList(events);
+              // Update the state variables
+              setDayScheduleList(sortedScheduleList);
               setIsSchedLoaded(true);
-            } catch (error) {
-              console.error("Error parsing JSON data from localStorage", error);
+            } else {
+              // If the dateOfEvent does not exist in the data, set dayScheduleList to an empty array
+              setDayScheduleList([]);
+              setIsSchedLoaded(true);
             }
+          } else {
+            console.log("No such document!");
           }
-        } else {
-          setDayScheduleList([]);
-          setIsSchedLoaded(true);
+        } catch (error) {
+          console.error("Error fetching document: ", error);
         }
       }
     };
 
     updateDayScheduleList();
-  }, [fullScheduleList, dateOfEvent]);
+  }, [dateOfEvent, isAddScheduleModalActive]);
 
-  function deleteTb(sched) {
-    // Retrieve the item from local storage
-    const findSched = localStorage.getItem(sched.dateOfEvent);
-
-    if (findSched) {
-      // Parse the item as JSON
-      const findSchedArray = JSON.parse(findSched);
-
-      // Filter out the specific time block based on the id
-      const mapSched = findSchedArray.filter((tb) => tb.id !== sched.id);
-
-      if (mapSched.length > 0) {
-        // If the array is not empty, convert the updated array back to a JSON string
-        const updatedSchedJSON = JSON.stringify(mapSched);
-
-        // Store the updated JSON string back in local storage
-        localStorage.setItem(sched.dateOfEvent, updatedSchedJSON);
+  async function deleteTb(sched) {
+    try {
+      const docRef = doc(db, "DataStorage", "appointmentInfo");
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        const formattedDate = format(dateOfEvent, "yyyy-MM-dd");
+        if (data.hasOwnProperty(formattedDate)) {
+          const scheduleList = data[formattedDate];
+          // Filter out the specific time block based on the id
+          const updatedScheduleList = scheduleList.filter(
+            (item) => item.id !== sched.id
+          );
+          // Check if the updated schedule list is empty
+          if (updatedScheduleList.length === 0) {
+            // If the schedule list is empty, delete the key-value pair
+            const newData = { ...data };
+            delete newData[formattedDate];
+            // Update Firestore document without the key-value pair
+            await setDoc(docRef, newData);
+          } else {
+            // If the schedule list is not empty, update Firestore document with the updated schedule list
+            await setDoc(docRef, {
+              ...data,
+              [formattedDate]: updatedScheduleList,
+            });
+          }
+          // Update the state variables
+          setDayScheduleList(updatedScheduleList);
+          setUpdateTrigger((prev) => !prev);
+        } else {
+          console.log("No schedule found for the specified date.");
+        }
       } else {
-        // If the array is empty, remove the local storage key
-        localStorage.removeItem(sched.dateOfEvent);
+        console.log("No such document!");
       }
-
-      // Update the fullScheduleList state
-      setFullScheduleList((prevList) =>
-        mapSched.length > 0
-          ? prevList
-          : prevList.filter((date) => date !== sched.dateOfEvent)
-      );
-
-      // Update the dayScheduleList state
-      setDayScheduleList(mapSched);
-
-      // Trigger the update effect in the parent component
-      setUpdateTrigger((prev) => !prev);
-    } else {
-      console.error(`No schedule found for date: ${sched.dateOfEvent}`);
+    } catch (error) {
+      console.error("Error deleting time block:", error);
     }
   }
 

@@ -11,6 +11,8 @@ import {
 } from "date-fns";
 import "./CalendarClientStyles/calendarclient.css";
 import { SeeTimeBlocksClient } from "./CalendarClientComponents/SeeTimeBlockClient";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../../firebase";
 
 const CalendarClient = () => {
   const [fullScheduleList, setFullScheduleList] = useState([]);
@@ -63,17 +65,23 @@ const CalendarClient = () => {
   };
 
   useEffect(() => {
-    const searchLocalStorage = () => {
-      const keys = [];
-      for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
-        keys.push(key);
-        setFullScheduleList(keys);
+    const fetchDataFromFirestore = async () => {
+      const docRef = doc(db, "DataStorage", "appointmentInfo");
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        const scheduleList = Object.keys(data);
+        setFullScheduleList(scheduleList);
+      } else {
+        console.log("Document does not exist!");
       }
     };
-    searchLocalStorage();
-  }, [isAddScheduleModalActive, isModalActive, updateTrigger]);
 
+    fetchDataFromFirestore();
+  }, [updateTrigger, isAddScheduleModalActive, isModalActive]);
+
+  console.log(fullScheduleList);
   return (
     <div
       className="calendar-client-main-container"
@@ -90,7 +98,10 @@ const CalendarClient = () => {
             const formattedDate = format(day, "MM/dd/yy");
             const hasEvent =
               fullScheduleList &&
-              fullScheduleList.some((schedule) => schedule === formattedDate);
+              fullScheduleList.some((schedule) => {
+                const formattedDate = format(day, "yyyy-MM-dd");
+                return schedule === formattedDate;
+              });
             const isSelectedDate = formattedDate === dateOfEvent;
 
             return (

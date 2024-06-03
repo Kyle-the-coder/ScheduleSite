@@ -78,8 +78,6 @@ const CalendarAdmin = () => {
     fetchDataFromFirestore();
   }, [updateTrigger]);
 
-  console.log(fullScheduleList);
-
   return (
     <div className="calendar-main-container">
       <div className="calendar">
