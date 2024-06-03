@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import { parse, format } from "date-fns";
+import { format, parse } from "date-fns";
 import close from "../../../../assets/close.png";
 import gsap from "gsap";
 import "../CalendarClientStyles/booknowform.css";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { db } from "../../../../firebase";
 
 export function BookNowForm({
   dateOfEvent,
@@ -12,12 +14,10 @@ export function BookNowForm({
   timeBlock,
   setTimeBlock,
 }) {
-  //STATES FOR FORM
   const [error, setError] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
-  const [isAvailableAppt, setIsAvailableAppt] = useState(true);
 
   function closeModal() {
     const modal = document.querySelector(".book-now-main-container");
@@ -41,44 +41,42 @@ export function BookNowForm({
     }
   }
 
-  function addClientToTimeBlock(e) {
+  async function addClientToTimeBlock(e) {
     e.preventDefault();
-
-    // Retrieve the array of objects from localStorage
-    const getInfo = localStorage.getItem(dateOfEvent);
-    if (getInfo) {
-      const eventArray = JSON.parse(getInfo);
-
-      // Find the object that matches the timeBlock
-      const updatedArray = eventArray.map((block) => {
-        console.log(typeof block);
-        if (
-          block.startTime === timeBlock.startTime &&
-          block.endTime === timeBlock.endTime
-        ) {
-          // Update the object with new data
-          return {
-            ...block,
-            name: name,
-            email: email,
-            description: description,
-            isAvailableAppt: false,
-          };
+    try {
+      const docRef = doc(db, "DataStorage", "appointmentInfo");
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        const formattedDate = format(dateOfEvent, "yyyy-MM-dd");
+        if (data.hasOwnProperty(formattedDate)) {
+          const scheduleList = data[formattedDate];
+          const updatedScheduleList = scheduleList.map((block) => {
+            if (block.id === timeBlock.id) {
+              return {
+                ...block,
+                name: name,
+                email: email,
+                description: description,
+                isAvailableAppt: false,
+              };
+            }
+            return block;
+          });
+          await setDoc(docRef, {
+            ...data,
+            [formattedDate]: updatedScheduleList,
+          });
+          setUpdateTrigger((prev) => !prev);
         }
-        return block;
-      });
-
-      // Save the updated array back to localStorage
-      localStorage.setItem(dateOfEvent, JSON.stringify(updatedArray));
-      setUpdateTrigger((prev) => !prev);
+      }
+    } catch (error) {
+      console.error("Error updating schedule:", error);
     }
-
-    // Clear form fields and close modal
     setName("");
     setEmail("");
     setDescription("");
     setTimeBlock("");
-    setIsAvailableAppt(true);
     closeModal();
   }
 
@@ -108,7 +106,6 @@ export function BookNowForm({
     <div className="book-now-main-container">
       <div className="book-now-top-container">
         <h1>Enter Appt. Info</h1>
-
         <img
           src={close}
           onClick={() => closeModal()}
@@ -147,7 +144,6 @@ export function BookNowForm({
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
-
           <div className="error-message">{error && error}</div>
           <button type="submit" className="book-now-submit-button">
             Book Appointment
