@@ -20,9 +20,7 @@ export function LandingPagePhone() {
         </div>
 
         <div className="landing-page-phone-quote-container">
-          <h4 className="f2-5 m0">
-            Ease pain. Build strength. Gain confidence
-          </h4>
+          <h4 className="f2 m0">Ease pain. Build strength. Gain confidence</h4>
         </div>
 
         <div className="landing-page-phone-quote-container">
