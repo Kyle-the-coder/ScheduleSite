@@ -16,7 +16,14 @@ import "./CalendarAdminStyles/calendaradmin.css";
 import { SeeTimeBlocksAdmin } from "./CalendarAdminComponents/SeeTimeBlocksAdmin";
 import { useExtendDate } from "../context/ExtendDateContext";
 import { db } from "../../../firebase"; // Adjust the import path as necessary
-import { collection, query, where, getDocs } from "firebase/firestore";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  getDoc,
+  doc,
+} from "firebase/firestore";
 
 const CalendarAdmin = () => {
   const [fullScheduleList, setFullScheduleList] = useState([]);
@@ -56,24 +63,18 @@ const CalendarAdmin = () => {
 
   useEffect(() => {
     const fetchDataFromFirestore = async () => {
-      const q = query(
-        collection(db, "DataStorage"),
-        where("appointmentInfo", "==", true)
-      );
-      const querySnapshot = await getDocs(q);
-      console.log(querySnapshot);
-      const scheduleList = [];
-      querySnapshot.forEach((doc) => {
-        const data = doc.data();
-        console.log("data", data);
+      const docRef = doc(db, "DataStorage", "appointmentInfo");
+      const docSnap = await getDoc(docRef);
 
-        Object.keys(data).forEach((key) => {
-          scheduleList.push(key);
-        });
-      });
-      console.log("list", scheduleList);
-      setFullScheduleList(scheduleList);
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        const scheduleList = Object.keys(data);
+        setFullScheduleList(scheduleList);
+      } else {
+        console.log("Document does not exist!");
+      }
     };
+
     fetchDataFromFirestore();
   }, [updateTrigger]);
 
@@ -92,7 +93,10 @@ const CalendarAdmin = () => {
             const formattedDate = format(day, "MM/dd/yy");
             const hasEvent =
               fullScheduleList &&
-              fullScheduleList.some((schedule) => schedule === formattedDate);
+              fullScheduleList.some((schedule) => {
+                const formattedDate = format(day, "yyyy-MM-dd");
+                return schedule === formattedDate;
+              });
             const isHighlighted = extendDate
               ? isWithinInterval(day, {
                   start: parse(dateOfEvent, "MM/dd/yy", new Date()),
