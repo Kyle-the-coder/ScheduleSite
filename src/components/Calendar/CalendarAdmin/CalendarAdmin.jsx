@@ -15,33 +15,23 @@ import {
 import "./CalendarAdminStyles/calendaradmin.css";
 import { SeeTimeBlocksAdmin } from "./CalendarAdminComponents/SeeTimeBlocksAdmin";
 import { useExtendDate } from "../context/ExtendDateContext";
+import { db } from "../../../firebase"; // Adjust the import path as necessary
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 const CalendarAdmin = () => {
   const [fullScheduleList, setFullScheduleList] = useState([]);
   const { extendDate, setExtendDate } = useExtendDate();
 
-  //CURRENT DATE TRACKER
   const [dateOfEvent, setDateOfEvent] = useState(
     format(new Date(), "MM/dd/yy")
   );
   const [updateTrigger, setUpdateTrigger] = useState(false);
 
-  // State for the current month
   const [currentMonth, setCurrentMonth] = useState(new Date());
-
-  // Get the start date of the current month
   const startDateOfMonth = startOfMonth(currentMonth);
-
-  // Get the end date of the current month
   const endDateOfMonth = endOfMonth(currentMonth);
-
-  // Get the start date of the first week of the month
   const startDateOfWeek = startOfWeek(startDateOfMonth);
-
-  // Calculate the number of days in the month
   const daysInMonth = getDaysInMonth(currentMonth);
-
-  // Generate an array of dates for the entire grid (including previous and next month)
   const allDaysInGrid = [];
   let currentDay = startDateOfWeek;
 
@@ -50,12 +40,10 @@ const CalendarAdmin = () => {
     currentDay = addDays(currentDay, 1);
   }
 
-  // Function to navigate to the previous month
   const goToPreviousMonth = () => {
     setCurrentMonth(subDays(startDateOfMonth, 1));
   };
 
-  // Function to navigate to the next month
   const goToNextMonth = () => {
     setCurrentMonth(addDays(endDateOfMonth, 1));
   };
@@ -67,16 +55,30 @@ const CalendarAdmin = () => {
   };
 
   useEffect(() => {
-    const searchLocalStorage = () => {
-      const keys = [];
-      for (let i = 0; i <= localStorage.length; i++) {
-        const key = localStorage.key(i);
-        keys.push(key);
-        setFullScheduleList(keys);
-      }
+    const fetchDataFromFirestore = async () => {
+      const q = query(
+        collection(db, "DataStorage"),
+        where("appointmentInfo", "==", true)
+      );
+      const querySnapshot = await getDocs(q);
+      console.log(querySnapshot);
+      const scheduleList = [];
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        console.log("data", data);
+
+        Object.keys(data).forEach((key) => {
+          scheduleList.push(key);
+        });
+      });
+      console.log("list", scheduleList);
+      setFullScheduleList(scheduleList);
     };
-    searchLocalStorage();
+    fetchDataFromFirestore();
   }, [updateTrigger]);
+
+  console.log(fullScheduleList);
+
   return (
     <div className="calendar-main-container">
       <div className="calendar">
