@@ -47,7 +47,7 @@ export function SchedulePageMonitor() {
       <Suspense fallback={<div>Loading...</div>}>
         <CalendarClient />
         {/* Uncomment this line if you need CalendarAdmin */}
-        {/* <CalendarAdmin /> */}
+        <CalendarAdmin />
       </Suspense>
     </div>
   );

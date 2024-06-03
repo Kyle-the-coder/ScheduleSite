@@ -69,10 +69,8 @@ const CalendarAdmin = () => {
   useEffect(() => {
     const searchLocalStorage = () => {
       const keys = [];
-      console.log(localStorage.length);
       for (let i = 0; i <= localStorage.length; i++) {
         const key = localStorage.key(i);
-        console.log(key);
         keys.push(key);
         setFullScheduleList(keys);
       }

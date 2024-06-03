@@ -1,23 +1,25 @@
-// src/firebase.js
+// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-const apiKey = import.meta.env.VITE_FB_API_KEY;
-const messengerId = import.meta.env.VITE_MESSENGER_ID;
-const authDomain = import.meta.env.VITE_AUTH_DOMAIN;
-const projectId = import.meta.env.VITE_PROJECT_ID;
-const storageBucket = import.meta.env.VITE_STORAGE_BUCKET;
-const appId = import.meta.env.VITE_APP_ID;
+import { getAnalytics } from "firebase/analytics";
 
+import { getFirestore } from "firebase/firestore";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: apiKey,
-  authDomain: authDomain,
-  projectId: projectId,
-  storageBucket: storageBucket,
-  messagingSenderId: messengerId,
-  appId: appId,
+  apiKey: "AIzaSyD8jvEVJAQjTP6witn7riBZoqOBAAf1sO0",
+  authDomain: "renewedmobilitysolutions.firebaseapp.com",
+  projectId: "renewedmobilitysolutions",
+  storageBucket: "renewedmobilitysolutions.appspot.com",
+  messagingSenderId: "682157552795",
+  appId: "1:682157552795:web:a7a0f36b65a599c2a4023e",
+  measurementId: "G-8NCQ8FQ1PH",
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
 
-export { db };
+export const db = getFirestore(app);
+const analytics = getAnalytics(app);
