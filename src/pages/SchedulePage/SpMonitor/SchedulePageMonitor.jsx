@@ -1,13 +1,23 @@
-import CalendarClient from "../../../components/Calendar/CalendarClient/CalendarClient";
+import React, { Suspense } from "react";
 import blueCircle from "../../../assets/record.png";
 import "./schedulepagemonitor.css";
 import weights from "../../../assets/WakeUpWorkout.jpg";
-import CalendarAdmin from "../../../components/Calendar/CalendarAdmin/CalendarAdmin";
 import { BannerMonitor } from "../../../components/Banner/BannerMonitor/BannerMonitor";
+
+// Dynamically import the components
+const CalendarClient = React.lazy(() =>
+  import("../../../components/Calendar/CalendarClient/CalendarClient")
+);
+const CalendarAdmin = React.lazy(() =>
+  import("../../../components/Calendar/CalendarAdmin/CalendarAdmin")
+);
+
 export function SchedulePageMonitor() {
   return (
     <div className="schedule-page-mont-main-container">
-      <BannerMonitor bannerImg={weights} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <BannerMonitor bannerImg={weights} />
+      </Suspense>
 
       <div className="schedule-page-intro-container">
         <h2>
@@ -32,8 +42,13 @@ export function SchedulePageMonitor() {
           <h4 className="m0">: Today</h4>
         </div>
       </div>
-      <CalendarClient />
-      {/* <CalendarAdmin /> */}
+
+      {/* Use Suspense to wrap the dynamically imported components */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <CalendarClient />
+        {/* Uncomment this line if you need CalendarAdmin */}
+        {/* <CalendarAdmin /> */}
+      </Suspense>
     </div>
   );
 }
