@@ -52,10 +52,18 @@ export function LandingPageMonitor() {
         </div>
       </div>
 
+      <div className="landing-quote-container">
+        <h1 className="font2 f2 ">
+          "My mission is to get you back on your feet, feeling independant, and
+          feeling good about yourself and your body"
+        </h1>
+        <p className=" f1-5 m0">-Sabrina Mitchell(owner)</p>
+      </div>
+
       <SliderMonitor
         title={
           <h1 className="font3 f3 m0">
-            <span className="pinkText">H</span>elpful{" "}
+            <span className="darkPinkText">H</span>elpful{" "}
             <span className="greenText">S</span>ervices
           </h1>
         }
@@ -74,10 +82,12 @@ export function LandingPageMonitor() {
         nav={"/services"}
       />
 
+      <div className="spacer"></div>
+
       <SliderMonitor
         title={
           <h1 className="font3 f2 m0">
-            <span className="pinkText">20+</span> years of{" "}
+            <span className="darkPinkText">20+</span> years of{" "}
             <span className="greenText">E</span>xperience
           </h1>
         }

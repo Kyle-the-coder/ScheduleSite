@@ -26,25 +26,13 @@ export function SliderMonitor({
           gsap.to(`.slider-img-${sliderId}`, {
             xPercent: 96,
             duration: 2,
-            delay: 2.5,
+            delay: 1,
           });
         } else if (!leftOrRight) {
           gsap.to(`.slider-img-${sliderId}`, {
             xPercent: -96,
             duration: 2,
-            delay: 2.5,
-          });
-        }
-      } else if (!inView) {
-        if (leftOrRight) {
-          gsap.to(`.slider-img-${sliderId}`, {
-            xPercent: 0,
-            duration: 0.5,
-          });
-        } else if (!leftOrRight) {
-          gsap.to(`.slider-img-${sliderId}`, {
-            xPercent: 0,
-            duration: 0.5,
+            delay: 1,
           });
         }
       }
