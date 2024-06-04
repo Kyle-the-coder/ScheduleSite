@@ -1,9 +1,21 @@
 import bgImage from "../../../assets/workout.jpg";
 import top10 from "../../../assets/review.png";
 import quotes from "../../../assets/circle.png";
+
+import wakeUp from "../../../assets/wakeUp.jpg";
+import experience from "../../../assets/experience.jpg";
 import "./landingpagephone.css";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { SliderPhone } from "../../../components/SliderTextDisplay/SliderPhone/SliderPhone";
 
 export function LandingPagePhone() {
+  const navigate = useNavigate();
+  const [isFirstRender, setIsFirstRender] = useState(false);
+
+  function handleBookApptButton() {
+    navigate("/schedule");
+  }
   return (
     <div className="landing-page-phone-main-container">
       <div className="landing-page-opening-container">
@@ -25,6 +37,7 @@ export function LandingPagePhone() {
 
         <div className="landing-page-phone-quote-container">
           <button
+            onClick={() => handleBookApptButton()}
             className="m0 landing-page-phone-button"
             aria-label="Book an appointment for physical therapy"
           >
@@ -49,6 +62,53 @@ export function LandingPagePhone() {
           />
         </div>
       </div>
+      <div className="spacer"></div>
+
+      <SliderPhone
+        title={
+          <h1 className="font3 m0">
+            <span className="darkPinkText">H</span>elpful{" "}
+            <span className="greenText">S</span>ervices
+          </h1>
+        }
+        paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+      fermentum justo eget nisl dapibus, nec venenatis justo malesuada.
+      Curabitur..."
+        buttonName="Services"
+        leftOrRight={true}
+        isFirstRender={isFirstRender}
+        img={wakeUp}
+        sliderId={1}
+        isTopCurve={true}
+        nav={"/services"}
+      />
+
+      <div className="landing-quote-container">
+        <h1 className="font2  ">
+          "My mission is to get you back on your feet, feeling independant, and
+          feeling good about yourself and your body"
+        </h1>
+        <p className=" f1-5 m0">-Sabrina Mitchell(owner)</p>
+      </div>
+
+      <SliderPhone
+        title={
+          <h2 className="font3  m0">
+            <span className="darkPinkText">20+</span> years of{" "}
+            <span className="greenText">E</span>xperience
+          </h2>
+        }
+        paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+      fermentum justo eget nisl dapibus, nec venenatis justo malesuada.
+      Curabitur vel..."
+        buttonName="About Me"
+        leftOrRight={false}
+        isFirstRender={isFirstRender}
+        img={experience}
+        sliderId={2}
+        isTopCurve={true}
+        nav={"/aboutme"}
+      />
     </div>
   );
 }
