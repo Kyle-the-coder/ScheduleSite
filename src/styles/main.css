@@ -114,3 +114,9 @@ body {
   height: 150px;
   display: flex;
 }
+
+.spacer-small {
+  width: 100%;
+  height: 100px;
+  display: flex;
+}

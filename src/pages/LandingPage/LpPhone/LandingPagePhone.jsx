@@ -109,6 +109,7 @@ export function LandingPagePhone() {
         isTopCurve={true}
         nav={"/aboutme"}
       />
+      <div className="spacer-small"></div>
     </div>
   );
 }

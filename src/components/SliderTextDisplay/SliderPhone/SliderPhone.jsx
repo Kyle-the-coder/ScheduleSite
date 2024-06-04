@@ -38,7 +38,6 @@ export function SliderPhone({
       }
     }
   }, [inView]);
-  console.log(nav);
 
   return (
     <div

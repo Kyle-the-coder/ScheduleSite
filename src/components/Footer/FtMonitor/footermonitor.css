@@ -1,15 +1,15 @@
 .footer-monitor-main-container {
   width: 100%;
   display: flex;
-  padding: 10px;
+  padding: 5% 5%;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 5%;
   background-color: rgb(255, 236, 252);
 }
 
 .footer-monitor-info-container {
-  width: 35%;
+  width: 30%;
+  padding: 2%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -41,6 +41,7 @@
 
 .footer-logo {
   width: 300px;
+  margin-left: 15%;
   height: 300px;
 }
 

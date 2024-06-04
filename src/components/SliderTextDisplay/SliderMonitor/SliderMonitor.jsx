@@ -38,7 +38,6 @@ export function SliderMonitor({
       }
     }
   }, [inView]);
-  console.log(nav);
 
   return (
     <div
