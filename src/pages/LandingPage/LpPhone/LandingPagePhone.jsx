@@ -84,19 +84,19 @@ export function LandingPagePhone() {
       />
 
       <div className="landing-quote-container">
-        <h1 className="font2  ">
+        <h2 className="font2  ">
           "My mission is to get you back on your feet, feeling independant, and
           feeling good about yourself and your body"
-        </h1>
-        <p className=" f1-5 m0">-Sabrina Mitchell(owner)</p>
+        </h2>
+        <p className="f1-2 m0">-Sabrina Mitchell(owner)</p>
       </div>
 
       <SliderPhone
         title={
-          <h2 className="font3  m0">
+          <h3 className="font3  m0">
             <span className="darkPinkText">20+</span> years of{" "}
             <span className="greenText">E</span>xperience
-          </h2>
+          </h3>
         }
         paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
       fermentum justo eget nisl dapibus, nec venenatis justo malesuada.
