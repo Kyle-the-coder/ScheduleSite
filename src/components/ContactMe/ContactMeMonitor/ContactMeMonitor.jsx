@@ -1,9 +1,9 @@
 import "./contactmemonitor.css";
 
-export default function ContactMe() {
+export default function ContactMeMonitor() {
   return (
-    <div className="contact-main-container">
-      <div className="contact-left-display-container">
+    <div className="contact-monitor-main-container">
+      <div className="contact-monitor-left-display-container">
         <h1 className="m0 font3">
           <span className="darkPinkText">G</span>et In{" "}
           <span className="greenText">T</span>ouch
@@ -16,9 +16,9 @@ export default function ContactMe() {
           Cras venenatis euismod malesuada. Nulla facilisi.
         </p>
       </div>
-      <div className="contact-right-form-container">
-        <form className="contact-form">
-          <div className="contact-form-input-container">
+      <div className="contact-monitor-right-form-container">
+        <form className="contact-monitor-form">
+          <div className="contact-monitor-form-input-container">
             <div className="input-container">
               <label>Name:</label>
               <input type="text" className="input-field" />
@@ -28,7 +28,7 @@ export default function ContactMe() {
               <input type="text" className="input-field" />
             </div>
           </div>
-          <div className="contact-form-input-container">
+          <div className="contact-monitor-form-input-container">
             <div className="input-container">
               <label>Phone:</label>
               <input type="text" className="input-field" />
@@ -44,7 +44,7 @@ export default function ContactMe() {
               </select>
             </div>
           </div>
-          <div className="contact-form-input-container">
+          <div className="contact-monitor-form-input-container">
             <div className="input-container area">
               <label>Message:</label>
               <textarea
@@ -56,7 +56,7 @@ export default function ContactMe() {
               />
             </div>
           </div>
-          <button className="contact-me-button">Contact Me</button>
+          <button className="contact-monitor-button">Contact Me</button>
         </form>
       </div>
     </div>

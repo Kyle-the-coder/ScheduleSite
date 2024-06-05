@@ -76,7 +76,7 @@ export function LandingPageMonitor() {
         nav={"/services"}
       />
 
-      <div className="landing-quote-container">
+      <div className="landing-monitor-quote-container">
         <h1 className="font2 f2 ">
           "My mission is to get you back on your feet, feeling independant, and
           feeling good about yourself and your body"

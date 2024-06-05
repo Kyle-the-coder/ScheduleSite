@@ -47,7 +47,7 @@ export function LandingPagePhone() {
 
         <div className="landing-page-top-award-container">
           <h4 className="font1 top-award-text">
-            "Sabrina is a top-tier trainer who exceeded my expectations and
+            Sabrina is a top-tier trainer who exceeded my expectations and
             helped me get my life back." -Wendy H.
           </h4>
           <img
@@ -83,7 +83,7 @@ export function LandingPagePhone() {
         nav={"/services"}
       />
 
-      <div className="landing-quote-container">
+      <div className="landing-phone-quote-container">
         <h2 className="font2  ">
           "My mission is to get you back on your feet, feeling independant, and
           feeling good about yourself and your body"
