@@ -83,10 +83,7 @@ const CalendarClient = () => {
 
   console.log(fullScheduleList);
   return (
-    <div
-      className="calendar-client-main-container"
-      style={{ marginBottom: "10%" }}
-    >
+    <div className="calendar-client-main-container">
       <div className="calendar-client">
         <div className="calendar-client-header">
           <button onClick={goToPreviousMonth}>&lt;</button>

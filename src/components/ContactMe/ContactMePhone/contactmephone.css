@@ -21,10 +21,11 @@
 .contact-phone-left-display-container p {
   font-family: "Font2", sans-serif;
   font-size: 1.2rem;
+  text-align: center;
   padding: 0 25px 0 20px;
   text-indent: 25px;
   line-height: 1.4;
-  margin-bottom: 2%;
+  margin-bottom: 10%;
 }
 .contact-phone-right-form-container {
   width: 100%;

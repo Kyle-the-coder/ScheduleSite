@@ -20,21 +20,21 @@ export default function ContactMeMonitor() {
         <form className="contact-monitor-form">
           <div className="contact-monitor-form-input-container">
             <div className="input-container">
-              <label>Name:</label>
+              <label className="f1-5">Name:</label>
               <input type="text" className="input-field" />
             </div>
             <div className="input-container">
-              <label>Email Address:</label>
+              <label className="f1-5">Email Address:</label>
               <input type="text" className="input-field" />
             </div>
           </div>
           <div className="contact-monitor-form-input-container">
             <div className="input-container">
-              <label>Phone:</label>
+              <label className="f1-5">Phone:</label>
               <input type="text" className="input-field" />
             </div>
             <div className="input-container">
-              <label>Interested In:</label>
+              <label className="f1-5">Interested In:</label>
               <select id="choice" className="input-field">
                 <option value="">Select Option</option>
                 <option value="pilates">Pilates</option>
@@ -46,7 +46,7 @@ export default function ContactMeMonitor() {
           </div>
           <div className="contact-monitor-form-input-container">
             <div className="input-container area">
-              <label>Message:</label>
+              <label className="f1-5">Message:</label>
               <textarea
                 className="input-field area"
                 rows={5}

@@ -20,21 +20,21 @@ export default function ContactMePhone() {
         <form className="contact-phone-form">
           <div className="contact-phone-form-input-container">
             <div className="input-container">
-              <label>Name:</label>
+              <label className="f1-2">Name:</label>
               <input type="text" className="input-field" />
             </div>
             <div className="input-container">
-              <label>Email Address:</label>
+              <label className="f1-2">Email Address:</label>
               <input type="text" className="input-field" />
             </div>
           </div>
           <div className="contact-phone-form-input-container">
             <div className="input-container">
-              <label>Phone:</label>
+              <label className="f1-2">Phone:</label>
               <input type="text" className="input-field" />
             </div>
             <div className="input-container">
-              <label>Interested In:</label>
+              <label className="f1-2">Interested In:</label>
               <select id="choice" className="input-field">
                 <option value="">Select Option</option>
                 <option value="pilates">Pilates</option>
@@ -46,7 +46,7 @@ export default function ContactMePhone() {
           </div>
           <div className="contact-phone-form-input-container">
             <div className="input-container area">
-              <label>Message:</label>
+              <label className="f1-2">Message:</label>
               <textarea
                 className="input-field area"
                 rows={5}
