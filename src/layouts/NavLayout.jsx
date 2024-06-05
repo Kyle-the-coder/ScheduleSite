@@ -3,6 +3,7 @@ import { NavbarMain } from "../components/Navbar/NbMain";
 import "../styles/main.css";
 import { FooterMonitor } from "../components/Footer/FtMonitor/FooterMonitor";
 import { FooterMain } from "../components/Footer/FooterMain";
+import ContactMe from "../components/ContactMe/ContactMeMonitor/ContactMeMonitor";
 export function NavLayout() {
   const { state } = useNavigation();
 
@@ -16,6 +17,7 @@ export function NavLayout() {
           <Outlet />
         </div>
       )}
+      <ContactMe />
       <FooterMain />
     </div>
   );
