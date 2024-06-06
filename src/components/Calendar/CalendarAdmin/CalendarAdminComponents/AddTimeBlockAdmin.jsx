@@ -80,6 +80,7 @@ export function AddTimeBlockDisplay({
       id: crypto.randomUUID(),
       dateOfEvent: date,
       isAvailableAppt: isAvailableAppt,
+      isConfirmed: false,
     });
 
     let eventBlocks = [];

@@ -15,15 +15,8 @@ import {
 import "./CalendarAdminStyles/calendaradmin.css";
 import { SeeTimeBlocksAdmin } from "./CalendarAdminComponents/SeeTimeBlocksAdmin";
 import { useExtendDate } from "../context/ExtendDateContext";
-import { db } from "../../../firebase"; // Adjust the import path as necessary
-import {
-  collection,
-  query,
-  where,
-  getDocs,
-  getDoc,
-  doc,
-} from "firebase/firestore";
+import { db } from "../../../firebase";
+import { getDoc, doc } from "firebase/firestore";
 
 const CalendarAdmin = () => {
   const [fullScheduleList, setFullScheduleList] = useState([]);
