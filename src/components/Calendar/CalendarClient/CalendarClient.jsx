@@ -26,37 +26,22 @@ const CalendarClient = () => {
   );
   const [updateTrigger, setUpdateTrigger] = useState(false);
 
-  // State for the current month
   const [currentMonth, setCurrentMonth] = useState(new Date());
-
-  // Get the start date of the current month
   const startDateOfMonth = startOfMonth(currentMonth);
-
-  // Get the start date of the first week of the month
   const startDateOfWeek = startOfWeek(startDateOfMonth);
-
-  // Calculate the number of days in the month
   const daysInMonth = getDaysInMonth(currentMonth);
-
-  // Generate an array of dates for the entire grid (including previous and next month)
   const allDaysInGrid = [];
   let currentDay = startDateOfWeek;
-
   while (allDaysInGrid.length < 35) {
     allDaysInGrid.push(currentDay);
     currentDay = addDays(currentDay, 1);
   }
-
-  // Function to navigate to the previous month
   const goToPreviousMonth = () => {
     setCurrentMonth(subDays(startDateOfMonth, 1));
   };
-
-  // Function to navigate to the next month
   const goToNextMonth = () => {
-    setCurrentMonth(addDays(startDateOfMonth, 32)); // Add 32 days to avoid issues with month lengths
+    setCurrentMonth(addDays(startDateOfMonth, 32));
   };
-
   const handleSeeSchedClick = (date) => {
     const formattedDate = format(date, "MM/dd/yy");
     setDateOfEvent(formattedDate);
