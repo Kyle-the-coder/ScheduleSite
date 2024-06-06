@@ -5,6 +5,7 @@ import gsap from "gsap";
 import "../CalendarClientStyles/booknowform.css";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../../../../firebase";
+import emailjs from "emailjs-com";
 
 export function BookNowForm({
   dateOfEvent,
@@ -18,6 +19,9 @@ export function BookNowForm({
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
+  const emailId = import.meta.env.VITE_EMAIL_ID;
+  const templateId = import.meta.env.VITE_EMAIL_TEMPLATE_ID;
+  const emailUserId = import.meta.env.VITE_EMAIL_USER_ID;
 
   function closeModal() {
     const modal = document.querySelector(".book-now-main-container");
@@ -68,16 +72,53 @@ export function BookNowForm({
             [formattedDate]: updatedScheduleList,
           });
           setUpdateTrigger((prev) => !prev);
+
+          const reFormattedDate = format(dateOfEvent, "MMMM d, yyyy");
+
+          // Format time as "1:00pm"
+          const startTimeParsed = parse(
+            timeBlock.startTime,
+            "HH:mm",
+            new Date()
+          );
+          const endTimeParsed = parse(timeBlock.endTime, "HH:mm", new Date());
+          const formattedStartTime = format(startTimeParsed, "h:mma");
+          const formattedEndTime = format(endTimeParsed, "h:mma");
+          const formattedTime = `${formattedStartTime}-${formattedEndTime}`;
+
+          // Send email using EmailJS
+          const templateParams = {
+            from_name: name,
+            from_email: email,
+            from_description: description,
+            from_date: reFormattedDate,
+            from_time: formattedTime,
+          };
+
+          emailjs.send(emailId, templateId, templateParams, emailUserId).then(
+            (response) => {
+              console.log(
+                "Email sent successfully!",
+                response.status,
+                response.text
+              );
+            },
+            (error) => {
+              console.error("Failed to send email.", error);
+            }
+          );
+
+          setName("");
+          setEmail("");
+          setDescription("");
+          setTimeBlock("");
+          closeModal();
         }
       }
     } catch (error) {
       console.error("Error updating schedule:", error);
+      setError("Error updating schedule. Please try again.");
     }
-    setName("");
-    setEmail("");
-    setDescription("");
-    setTimeBlock("");
-    closeModal();
   }
 
   useEffect(() => {
