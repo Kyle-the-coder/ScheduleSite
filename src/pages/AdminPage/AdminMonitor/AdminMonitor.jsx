@@ -3,6 +3,8 @@ import blueCircle from "../../../assets/record.png";
 import "./adminmonitor.css";
 import weights from "../../../assets/WakeUpWorkout.jpg";
 import { BannerMonitor } from "../../../components/Banner/BannerMonitor/BannerMonitor";
+import { auth } from "../../../firebase";
+import { signOut } from "firebase/auth";
 
 // Dynamically import the components
 const CalendarClient = React.lazy(() =>
@@ -13,6 +15,14 @@ const CalendarAdmin = React.lazy(() =>
 );
 
 export function AdminMonitor() {
+  const logout = async () => {
+    try {
+      await signOut(auth);
+      console.log("User signed out successfully");
+    } catch (error) {
+      console.error("Error signing out: ", error);
+    }
+  };
   return (
     <div className="admin-page-mont-main-container">
       <Suspense fallback={<div>Loading...</div>}>
@@ -21,7 +31,9 @@ export function AdminMonitor() {
 
       <div className="admin-page-intro-container">
         <h2>Set up your Schedule below</h2>
-        <button className="logout-button f1-2">Logout</button>
+        <button onClick={() => logout()} className="logout-button f1-2">
+          Logout
+        </button>
       </div>
 
       {/* Use Suspense to wrap the dynamically imported components */}
