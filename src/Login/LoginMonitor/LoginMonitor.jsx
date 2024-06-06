@@ -7,6 +7,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
+import "./loginmonitor.css";
 
 function LoginMonitor() {
   const [email, setEmail] = useState("");
@@ -26,9 +27,9 @@ function LoginMonitor() {
         navigate("/admin");
       }
       setError("");
-      alert("Authentication successful!");
+      alert("You have successfully logged in");
     } catch (error) {
-      setError(error.message);
+      setError("Wrong Email or Password");
     }
   };
 
@@ -44,29 +45,35 @@ function LoginMonitor() {
   }, [navigate]);
 
   return (
-    <div>
-      <h1>{isRegister ? "Register" : "Login"}</h1>
-      <form onSubmit={handleAuthAction}>
-        <div>
-          <label>Email:</label>
+    <div className="login-monitor-main-container">
+      <h1 className="font2">{isRegister ? "Register" : "Login"}</h1>
+      <form className="login-monitor-form" onSubmit={handleAuthAction}>
+        <div className="login-input-container">
+          <label className="f1-2 font2">Email:</label>
           <input
+            className="login-input"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
-        <div>
-          <label>Password:</label>
+        <div className="login-input-container">
+          <label className="f1-2 font2">Password:</label>
           <input
+            className="login-input"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        <button type="submit">{isRegister ? "Register" : "Login"}</button>
+        <div className="login-error-container">
+          {error && <p style={{ color: "red" }}>{error}</p>}
+        </div>
+        <button className="login-button font2 f1-2" type="submit">
+          {isRegister ? "Register" : "Login"}
+        </button>
       </form>
       <button onClick={() => setIsRegister(!isRegister)}>
         {isRegister ? "Switch to Login" : "Switch to Register"}
