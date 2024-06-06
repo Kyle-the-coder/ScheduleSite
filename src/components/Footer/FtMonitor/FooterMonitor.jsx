@@ -5,7 +5,14 @@ import yoga from "../../../assets/yoga.png";
 import logo from "../../../assets/SabrinaLogoText.png";
 import fb from "../../../assets/fb.png";
 import insta from "../../../assets/insta.png";
+import { useNavigate } from "react-router-dom";
+
 export function FooterMonitor() {
+  const navigate = useNavigate();
+
+  function handleLoginNavigate() {
+    navigate("/login");
+  }
   return (
     <div className="footer-monitor-main-container">
       <div className="footer-monitor-info-container">
@@ -16,7 +23,11 @@ export function FooterMonitor() {
           malesuada. Nulla facilisi.
         </h4>
         <div className="footer-icon-container">
-          <img className="footer-icon" src={yogaBall} />
+          <img
+            className="footer-icon"
+            src={yogaBall}
+            onClick={() => handleLoginNavigate()}
+          />
           <img className="footer-icon" src={yoga} />
           <img className="footer-icon" src={yogaMat} />
         </div>

@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAnalytics } from "firebase/analytics";
-
+import { getAuth } from "firebase/auth";
 const apiKey1 = import.meta.env.VITE_FB_API_KEY;
 const authDomain1 = import.meta.env.VITE_AUTH_DOMAIN;
 const messengerId1 = import.meta.env.VITE_MESSENGER_ID;
@@ -25,4 +25,5 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
+export const auth = getAuth(app);
 const analytics = getAnalytics(app);
