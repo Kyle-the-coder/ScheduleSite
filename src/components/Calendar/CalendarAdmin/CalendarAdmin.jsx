@@ -14,7 +14,7 @@ import {
 } from "date-fns";
 import "./CalendarAdminStyles/calendaradmin.css";
 import { SeeTimeBlocksAdmin } from "./CalendarAdminComponents/SeeTimeBlocksAdmin";
-import { useExtendDate } from "../context/ExtendDateContext";
+import { useExtendDate } from "../calendarContext/ExtendDateContext";
 import { db } from "../../../firebase";
 import { getDoc, doc } from "firebase/firestore";
 

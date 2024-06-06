@@ -5,7 +5,7 @@ import gsap from "gsap";
 import {
   ExtendDateContext,
   useExtendDate,
-} from "../../context/ExtendDateContext";
+} from "../../calendarContext/ExtendDateContext";
 import { format } from "date-fns";
 import { db } from "../../../../firebase"; // Adjust the import path as necessary
 import { doc, setDoc, getDoc, updateDoc, arrayUnion } from "firebase/firestore";
