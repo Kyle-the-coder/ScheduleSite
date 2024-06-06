@@ -14,33 +14,14 @@ const CalendarAdmin = React.lazy(() =>
 
 export function AdminMonitor() {
   return (
-    <div className="schedule-page-mont-main-container">
+    <div className="admin-page-mont-main-container">
       <Suspense fallback={<div>Loading...</div>}>
         <BannerMonitor bannerImg={weights} />
       </Suspense>
 
-      <div className="schedule-page-intro-container">
-        <h2>
-          View my schedule to select an available date and time for your
-          appointment.
-        </h2>
-      </div>
-      <div className="schedule-page-key-container">
-        <div className="key-container">
-          <h4 className="m0">Key:</h4>
-        </div>
-        <div className="key-container">
-          <img src={blueCircle} className="blue-circle" />
-          <h4 className="m0">: Appointments available on this day</h4>
-        </div>
-        <div className="key-container">
-          <div className="blue-square"></div>
-          <h4 className="m0">: Selected day</h4>
-        </div>
-        <div className="key-container">
-          <div className="pink-circle"></div>
-          <h4 className="m0">: Today</h4>
-        </div>
+      <div className="admin-page-intro-container">
+        <h2>Set up your Schedule below</h2>
+        <button className="logout-button f1-2">Logout</button>
       </div>
 
       {/* Use Suspense to wrap the dynamically imported components */}
