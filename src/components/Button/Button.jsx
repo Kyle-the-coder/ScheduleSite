@@ -1,3 +1,4 @@
+import "./button.css";
 export function Button() {
   return (
     <button class="animated-button" onClick={() => handleBookApptButton()}>
