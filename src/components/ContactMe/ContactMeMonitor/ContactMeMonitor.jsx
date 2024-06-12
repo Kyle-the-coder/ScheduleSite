@@ -1,3 +1,4 @@
+import { FormButton } from "../../FormButton/FormButton";
 import "./contactmemonitor.css";
 
 export default function ContactMeMonitor() {
@@ -56,7 +57,8 @@ export default function ContactMeMonitor() {
               />
             </div>
           </div>
-          <button className="contact-monitor-button">Contact Me</button>
+          {/* <button className="contact-monitor-button">Contact Me</button> */}
+          <FormButton buttonName="Contact Me" />
         </form>
       </div>
     </div>

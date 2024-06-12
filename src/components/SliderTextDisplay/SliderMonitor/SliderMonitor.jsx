@@ -54,18 +54,15 @@ export function SliderMonitor({
           <div className="slider-text-display" ref={ref}>
             {title}
             <p className="font2 f1-5 m0">{paragraph}</p>
-            {/* <button onClick={() => navigate(nav)} className="slider-button">
-              {buttonName}
-            </button> */}
+
             <Button
               bgc="rgb(65, 65, 65)"
-              fontColor="rgb(63, 172, 63)"
-              boxShadow="rgb(63, 172, 63)"
               hoverColor="rgb(140, 43, 179)"
-              fontSize="1.5rem"
+              fontSize="1.3rem"
+              marginTop="3%"
               padding="5px 40px 5px 40px"
-              marginTop="2%"
               buttonName={buttonName}
+              nav={nav}
             />
           </div>
           <div className="slider-img-display">
@@ -89,10 +86,15 @@ export function SliderMonitor({
           </div>
           <div className="slider-text-display" ref={ref}>
             {title}
-            <p className="font2 f1-5">{paragraph}</p>
-            <button onClick={() => navigate(nav)} className="slider-button">
-              {buttonName}
-            </button>
+            <p className="font2 f1-5 ">{paragraph}</p>
+            <Button
+              bgc="rgb(65, 65, 65)"
+              hoverColor="rgb(140, 43, 179)"
+              fontSize="1.3rem"
+              padding="5px 40px 5px 40px"
+              buttonName={buttonName}
+              nav={nav}
+            />
           </div>
         </>
       )}

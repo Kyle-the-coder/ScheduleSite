@@ -78,6 +78,9 @@ body {
 .darkPinkText {
   color: rgb(226, 142, 156);
 }
+.purpleText {
+  color: rgb(140, 43, 179);
+}
 
 .f3 {
   font-size: 3rem;

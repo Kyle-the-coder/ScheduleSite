@@ -4,6 +4,7 @@ import { BookNowForm } from "./BookNowForm";
 import "../CalendarClientStyles/seetimeblockclient.css";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../../../firebase";
+import { FormButton } from "../../../FormButton/FormButton";
 
 export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
   const [fullScheduleList, setFullScheduleList] = useState([]);
@@ -154,13 +155,11 @@ export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
           )}
         </div>
         <div className="book-now-button-container">
-          <button
-            className="tbc-submit-button"
-            onClick={() => handleAddTimeBlockModal()}
-            disabled={!timeBlock || !timeBlock.isAvailableAppt} // Disable button conditionally
-          >
-            Book Now
-          </button>
+          <FormButton
+            buttonName="Book Now"
+            buttonFunction={handleAddTimeBlockModal}
+            disabledButton={!timeBlock || !timeBlock.isAvailableAppt}
+          />
           {isAddScheduleModalActive && (
             <BookNowForm
               dateOfEvent={dateOfEvent}

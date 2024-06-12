@@ -59,7 +59,7 @@ export function LandingPageMonitor() {
         title={
           <h1 className="font3 f3 m0">
             <span className="darkPinkText">H</span>elpful{" "}
-            <span className="greenText">S</span>ervices
+            <span className="purpleText">S</span>ervices
           </h1>
         }
         paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
@@ -89,7 +89,7 @@ export function LandingPageMonitor() {
         title={
           <h1 className="font3 f2 m0">
             <span className="darkPinkText">20+</span> years of{" "}
-            <span className="greenText">E</span>xperience
+            <span className="purpleText">E</span>xperience
           </h1>
         }
         paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
