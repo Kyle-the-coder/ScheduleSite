@@ -66,7 +66,6 @@ const CalendarClient = () => {
     fetchDataFromFirestore();
   }, [updateTrigger, isAddScheduleModalActive, isModalActive]);
 
-  console.log(fullScheduleList);
   return (
     <div className="calendar-client-main-container">
       <div className="calendar-client">

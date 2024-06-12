@@ -6,6 +6,7 @@ import "../CalendarClientStyles/booknowform.css";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../../../../firebase";
 import emailjs from "emailjs-com";
+import { FormButton } from "../../../FormButton/FormButton";
 
 export function BookNowForm({
   dateOfEvent,
@@ -186,9 +187,7 @@ export function BookNowForm({
             />
           </div>
           <div className="error-message">{error && error}</div>
-          <button type="submit" className="book-now-submit-button">
-            Book Appointment
-          </button>
+          <FormButton buttonName="Book Appointment" />
         </form>
       </div>
     </div>

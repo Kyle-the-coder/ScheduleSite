@@ -14,6 +14,7 @@ export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
     useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [timeBlock, setTimeBlock] = useState(null);
+  const [isTbSelected, setIsTbSelected] = useState(false);
 
   function handleAddTimeBlockModal() {
     setIsAddScheduleModalActive(true);
@@ -42,11 +43,10 @@ export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
       }
     };
     fetchFullScheduleList();
-  }, [fullScheduleList]);
+  }, []);
 
   // Inside the component function
   useEffect(() => {
-    console.log("hello");
     const updateDayScheduleList = async () => {
       if (dateOfEvent) {
         try {
@@ -90,6 +90,11 @@ export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
     setTimeBlock("");
   }, [dateOfEvent]);
 
+  useEffect(() => {
+    const selected = timeBlock ? timeBlock.isAvailableAppt : false;
+    setIsTbSelected(selected);
+  }, [timeBlock]);
+
   return (
     <div className="see-timeblock-client-main-container">
       <div className="timeblock-client-display-container">
@@ -117,7 +122,6 @@ export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
                 timeBlock &&
                 sched.startTime === timeBlock.startTime &&
                 sched.endTime === timeBlock.endTime;
-
               return (
                 <div
                   key={index}
@@ -158,7 +162,11 @@ export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
           <FormButton
             buttonName="Book Now"
             buttonFunction={handleAddTimeBlockModal}
-            disabledButton={!timeBlock || !timeBlock.isAvailableAppt}
+            disabledButton={
+              !timeBlock ||
+              !timeBlock.isAvailableAppt ||
+              isAddScheduleModalActive
+            }
           />
           {isAddScheduleModalActive && (
             <BookNowForm

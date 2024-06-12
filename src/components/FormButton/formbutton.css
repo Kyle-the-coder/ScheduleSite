@@ -1,16 +1,17 @@
-button {
+.form-submit-button {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
   font-size: 17px;
   padding: 1em 2.7em;
   font-weight: 500;
   background: #1f2937;
-  color: white;
+  color: rgb(180, 180, 180);
   border: none;
   position: relative;
   overflow: hidden;
   border-radius: 0.6em;
   cursor: pointer;
+  transition: all 0.5s;
 }
 
 .gradient {
@@ -46,11 +47,16 @@ button {
   transform: translate(-50%, -50%);
 }
 
-button:hover .transition {
+.form-submit-button.enabled .transition {
   width: 14em;
+
   height: 14em;
 }
 
-button:active {
+.form-submit-button.enabled {
+  color: white;
+}
+
+.form-submit-button:active {
   transform: scale(0.97);
 }

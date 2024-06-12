@@ -40,6 +40,7 @@ export function LandingPageMonitor() {
             hoverColor="rgb(140, 43, 179)"
             fontSize="1.5rem"
             buttonName="Book An Appointment"
+            nav="/schedule"
           />
         </div>
 
