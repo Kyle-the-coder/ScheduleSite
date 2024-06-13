@@ -5,7 +5,7 @@ import { landingRoute } from "./pages/LandingPage/LpMain";
 import { scheduleRoute } from "./pages/SchedulePage/SpMain";
 import { aboutMeRoute } from "./pages/AboutMePage/AmMain";
 import { servicesRoute } from "./pages/ServicesPage/SvMain";
-import { loginRoute } from "./Login/LoginMain";
+import { loginRoute } from "./components/Login/LoginMain";
 import AdminMain from "./pages/AdminPage/AdminMain";
 import ProtectedRoute from "./components/ProtectedRoute";
 
