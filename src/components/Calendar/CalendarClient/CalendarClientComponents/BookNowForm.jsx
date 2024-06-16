@@ -11,9 +11,7 @@ import { useBookNowModal } from "../../../context/BookNowModal";
 
 export function BookNowForm({
   dateOfEvent,
-  setIsAddScheduleModalActive,
   setUpdateTrigger,
-  isAddScheduleModalActive,
   timeBlock,
   setTimeBlock,
 }) {
