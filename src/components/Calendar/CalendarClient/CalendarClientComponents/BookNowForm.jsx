@@ -95,6 +95,7 @@ export function BookNowForm({
           setEmail("");
           setDescription("");
           setTimeBlock("");
+          alert("Your appointment was successfully booked!");
           closeModal();
         }
       }
