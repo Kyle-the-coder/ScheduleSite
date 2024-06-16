@@ -17,7 +17,8 @@ export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
   const [timeBlock, setTimeBlock] = useState(null);
   const { isBnActive, setIsBnActive } = useBookNowModal();
   const [isTbSelected, setIsTbSelected] = useState(false);
-
+  const parsedDate = parse(dateOfEvent, "MM/dd/yy", new Date());
+  const formattedDate = format(parsedDate, "MMMM d, yyyy");
   function handleAddTimeBlockModal() {
     setIsBnActive(true);
   }
@@ -86,7 +87,7 @@ export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
     };
 
     updateDayScheduleList();
-  }, [dateOfEvent, isAddScheduleModalActive]);
+  }, [dateOfEvent, isBnActive]);
 
   useEffect(() => {
     setTimeBlock("");
@@ -101,7 +102,8 @@ export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
     <div className="see-timeblock-client-main-container">
       <div className="timeblock-client-display-container">
         <div className="tbc-display-top">
-          <h1 className="font2">{dateOfEvent}</h1>
+          <h1 className="font2 m0">{formattedDate}</h1>
+          <p className="m0 f1-2">please click on available time below</p>
         </div>
         <div className="tbc-sched-container">
           {dayScheduleList.length === 0 ? (
