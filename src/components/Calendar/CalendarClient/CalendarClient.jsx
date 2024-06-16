@@ -13,9 +13,11 @@ import "./CalendarClientStyles/calendarclient.css";
 import { SeeTimeBlocksClient } from "./CalendarClientComponents/SeeTimeBlockClient";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../../firebase";
+import { useBookNowModal } from "../../context/BookNowModal";
 
 const CalendarClient = () => {
   const [fullScheduleList, setFullScheduleList] = useState([]);
+  const { isBnActive, setIsBnActive } = useBookNowModal();
 
   //STATES FOR MODALS
   const [isModalActive, setIsModalActive] = useState(false);

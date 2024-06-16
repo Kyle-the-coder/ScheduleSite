@@ -3,6 +3,8 @@ import blueCircle from "../../../assets/record.png";
 import "./schedulepagemonitor.css";
 import weights from "../../../assets/WakeUpWorkout.jpg";
 import { BannerMonitor } from "../../../components/Banner/BannerMonitor/BannerMonitor";
+import { useBookNowModal } from "../../../components/context/BookNowModal";
+import { BookNowForm } from "../../../components/Calendar/CalendarClient/CalendarClientComponents/BookNowForm";
 
 // Dynamically import the components
 const CalendarClient = React.lazy(() =>
@@ -13,6 +15,7 @@ const CalendarAdmin = React.lazy(() =>
 );
 
 export function SchedulePageMonitor() {
+  const { isBnActive, setIsBnActive } = useBookNowModal();
   return (
     <div className="schedule-page-mont-main-container">
       <Suspense fallback={<div>Loading...</div>}>

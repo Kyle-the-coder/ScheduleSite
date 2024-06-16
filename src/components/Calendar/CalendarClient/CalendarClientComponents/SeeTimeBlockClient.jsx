@@ -5,6 +5,7 @@ import "../CalendarClientStyles/seetimeblockclient.css";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../../../firebase";
 import { FormButton } from "../../../FormButton/FormButton";
+import { useBookNowModal } from "../../../context/BookNowModal";
 
 export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
   const [fullScheduleList, setFullScheduleList] = useState([]);
@@ -14,10 +15,11 @@ export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
     useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [timeBlock, setTimeBlock] = useState(null);
+  const { isBnActive, setIsBnActive } = useBookNowModal();
   const [isTbSelected, setIsTbSelected] = useState(false);
 
   function handleAddTimeBlockModal() {
-    setIsAddScheduleModalActive(true);
+    setIsBnActive(true);
   }
 
   function handleTimeBlockClick(sched) {
@@ -168,19 +170,19 @@ export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
               isAddScheduleModalActive
             }
           />
-          {isAddScheduleModalActive && (
-            <BookNowForm
-              dateOfEvent={dateOfEvent}
-              setIsAddScheduleModalActive={setIsAddScheduleModalActive}
-              setUpdateTrigger={setUpdateTrigger}
-              isAddScheduleModalActive={isAddScheduleModalActive}
-              dayScheduleList={dayScheduleList}
-              timeBlock={timeBlock}
-              setTimeBlock={setTimeBlock}
-            />
-          )}
         </div>
       </div>
+      {isBnActive && (
+        <BookNowForm
+          dateOfEvent={dateOfEvent}
+          setIsAddScheduleModalActive={setIsAddScheduleModalActive}
+          setUpdateTrigger={setUpdateTrigger}
+          isAddScheduleModalActive={isAddScheduleModalActive}
+          dayScheduleList={dayScheduleList}
+          timeBlock={timeBlock}
+          setTimeBlock={setTimeBlock}
+        />
+      )}
     </div>
   );
 }
