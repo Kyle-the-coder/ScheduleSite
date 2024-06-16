@@ -52,8 +52,10 @@ export function SliderMonitor({
       {leftOrRight ? (
         <>
           <div className="slider-text-display" ref={ref}>
-            {title}
-            <p className="font2 f1-5 m0">{paragraph}</p>
+            <div className="slider-title">{title}</div>
+            <div className="slider-paragraph">
+              <p className="font2 f1-5 m0">{paragraph}</p>
+            </div>
 
             <Button
               bgc="rgb(65, 65, 65)"
@@ -86,12 +88,15 @@ export function SliderMonitor({
           </div>
           <div className="slider-text-display" ref={ref}>
             {title}
-            <p className="font2 f1-5 ">{paragraph}</p>
+            <div className="slider-paragraph">
+              <p className="font2 f1-5 ">{paragraph}</p>
+            </div>
             <Button
               bgc="rgb(65, 65, 65)"
               hoverColor="rgb(140, 43, 179)"
               fontSize="1.3rem"
               padding="5px 40px 5px 40px"
+              marginTop="3%"
               buttonName={buttonName}
               nav={nav}
             />
