@@ -186,7 +186,7 @@ export function AddTimeBlockDisplay({
         />
       </div>
       <div className="modal-form-container">
-        <form className="form" onSubmit={addDatesToStorage}>
+        <form className="form-client" onSubmit={addDatesToStorage}>
           <div className="modal-form-input-container">
             <label className="text-label">Start Time:</label>
             <input

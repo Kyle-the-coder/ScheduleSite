@@ -79,12 +79,17 @@
   margin-bottom: 5%;
 }
 
-.form {
-  width: 100%;
+.form-client {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  gap: 4px;
+  width: 90%;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  background-color: #1a1a1a;
+  color: #fff;
+  border: 1px solid #333;
 }
 .error-message {
   width: 100%;

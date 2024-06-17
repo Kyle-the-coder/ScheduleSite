@@ -17,7 +17,6 @@ import { useBookNowModal } from "../../context/BookNowModal";
 
 const CalendarClient = () => {
   const [fullScheduleList, setFullScheduleList] = useState([]);
-  const { isBnActive, setIsBnActive } = useBookNowModal();
 
   //STATES FOR MODALS
   const [isModalActive, setIsModalActive] = useState(false);

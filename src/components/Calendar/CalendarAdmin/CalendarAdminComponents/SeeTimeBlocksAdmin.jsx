@@ -14,6 +14,8 @@ export function SeeTimeBlocksAdmin({ setUpdateTrigger, dateOfEvent }) {
     useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [timeBlock, setTimeBlock] = useState(null);
+  const parsedDate = parse(dateOfEvent, "MM/dd/yy", new Date());
+  const formattedDate = format(parsedDate, "MMMM d, yyyy");
 
   function handleAddTimeBlockModal() {
     setIsAddScheduleModalActive(true);
@@ -135,8 +137,8 @@ export function SeeTimeBlocksAdmin({ setUpdateTrigger, dateOfEvent }) {
     <div className="see-timeblock-main-container">
       <div className="timeblock-display-container">
         <div className="tb-display-top">
-          <h1>Schedule for:</h1>
-          <h1>{dateOfEvent}</h1>
+          <p className="m0 f1-5">Schedule for:</p>
+          <h1 className="m0">{formattedDate}</h1>
         </div>
         <div className="tb-sched-container">
           {dayScheduleList.length === 0 ? (
