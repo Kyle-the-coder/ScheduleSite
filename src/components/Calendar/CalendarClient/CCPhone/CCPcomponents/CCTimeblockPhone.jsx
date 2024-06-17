@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { parse, format } from "date-fns";
-import { BookNowForm } from "./BookNowForm";
-import "../CalendarClientStyles/seetimeblockclient.css";
+import { BookNowFormPhone } from "./BookNowFormPhone";
+import "../CCPstyles/cctimeblockphone.css";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../../../../firebase";
 import { FormButton } from "../../../../FormButton/FormButton";
 import { useBookNowModal } from "../../../../context/BookNowModal";
 
-export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
+export function CCTimeblockPhone({ setUpdateTrigger, dateOfEvent }) {
   const [fullScheduleList, setFullScheduleList] = useState([]);
   const [dayScheduleList, setDayScheduleList] = useState([]);
   const [isSchedLoaded, setIsSchedLoaded] = useState(false);
@@ -175,7 +175,7 @@ export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
         </div>
       </div>
       {isBnActive && (
-        <BookNowForm
+        <BookNowFormPhone
           dateOfEvent={dateOfEvent}
           setIsAddScheduleModalActive={setIsAddScheduleModalActive}
           setUpdateTrigger={setUpdateTrigger}

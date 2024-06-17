@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { format, parse } from "date-fns";
-import "../CalendarClientStyles/booknowform.css";
+import "../CCPstyles/booknowformphone.css";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../../../../../firebase";
 import emailjs from "emailjs-com";
 import { useBookNowModal } from "../../../../context/BookNowModal";
 import closeButton from "../../../../../assets/x-button.png";
 
-export function BookNowForm({
+export function BookNowFormPhone({
   dateOfEvent,
   setUpdateTrigger,
   timeBlock,

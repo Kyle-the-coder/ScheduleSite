@@ -4,8 +4,9 @@ import weights from "../../../assets/WakeUpWorkout.jpg";
 
 import blueCircle from "../../../assets/record.png";
 import "./schedulepagephone.css";
+import CalendarClientPhone from "../../../components/Calendar/CalendarClient/CCPhone/CCPhone";
 const CalendarClient = React.lazy(() =>
-  import("../../../components/Calendar/CalendarClient/CCMonitor/CalendarClient")
+  import("../../../components/Calendar/CalendarClient/CCPhone/CCPhone")
 );
 
 export function SchedulePagePhone() {
