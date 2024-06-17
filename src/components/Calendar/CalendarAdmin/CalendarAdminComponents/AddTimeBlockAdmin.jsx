@@ -164,16 +164,16 @@ export function AddTimeBlockDisplay({
     }
   }
 
-  useEffect(() => {
-    if (isAddScheduleModalActive) {
-      const modal = document.querySelector(".modal-container");
-      gsap.fromTo(
-        modal,
-        { x: "100%", visibility: "visible", boxShadow: "none" },
-        { x: "0%", duration: 1.2, ease: "power4.out" }
-      );
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (isAddScheduleModalActive) {
+  //     const modal = document.querySelector(".modal-container");
+  //     gsap.fromTo(
+  //       modal,
+  //       { x: "100%", visibility: "visible", boxShadow: "none" },
+  //       { x: "0%", duration: 1.2, ease: "power4.out" }
+  //     );
+  //   }
+  // }, []);
 
   return (
     <div className="modal-container">

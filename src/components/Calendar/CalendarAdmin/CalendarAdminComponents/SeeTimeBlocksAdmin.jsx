@@ -48,7 +48,6 @@ export function SeeTimeBlocksAdmin({ setUpdateTrigger, dateOfEvent }) {
 
   // Inside the component function
   useEffect(() => {
-    console.log("hello");
     const updateDayScheduleList = async () => {
       if (dateOfEvent) {
         try {
