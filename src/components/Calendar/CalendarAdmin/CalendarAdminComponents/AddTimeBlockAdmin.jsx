@@ -6,7 +6,7 @@ import {
   ExtendDateContext,
   useExtendDate,
 } from "../../calendarContext/ExtendDateContext";
-import { format } from "date-fns";
+import { format, parse } from "date-fns";
 import { db } from "../../../../firebase"; // Adjust the import path as necessary
 import { doc, setDoc, getDoc, updateDoc, arrayUnion } from "firebase/firestore";
 
@@ -24,6 +24,8 @@ export function AddTimeBlockDisplay({
   const [splitIntoHourBlocks, setSplitIntoHourBlocks] = useState(false);
   const { setExtendDate } = useExtendDate();
   const extendDate = useContext(ExtendDateContext);
+  const parsedDate = parse(dateOfEvent, "MM/dd/yy", new Date());
+  const formattedDate = format(parsedDate, "MMMM d, yyyy");
 
   function closeModal() {
     const modal = document.querySelector(".modal-container");
@@ -180,7 +182,10 @@ export function AddTimeBlockDisplay({
       <form className="form-client" onSubmit={addDatesToStorage}>
         {" "}
         <div className="modal-top">
-          <h1>Enter A Time Block</h1>
+          <div className="flex-col">
+            <p className="m0 f1-2">Enter A Time Block For</p>
+            <h1 className="m0">{formattedDate}</h1>
+          </div>
           <img
             src={close}
             onClick={() => closeModal()}
