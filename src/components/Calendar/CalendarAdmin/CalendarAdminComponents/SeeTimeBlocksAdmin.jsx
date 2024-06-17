@@ -204,6 +204,7 @@ export function SeeTimeBlocksAdmin({ setUpdateTrigger, dateOfEvent }) {
         <div className="add-schedule-button-container">
           <button
             className="tb-submit-button"
+            disabled={isAddScheduleModalActive}
             onClick={() => handleAddTimeBlockModal()}
           >
             Add Time Block

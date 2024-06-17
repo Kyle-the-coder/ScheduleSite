@@ -177,65 +177,63 @@ export function AddTimeBlockDisplay({
 
   return (
     <div className="modal-container">
-      <div className="modal-form-container">
-        <form className="form-client" onSubmit={addDatesToStorage}>
-          {" "}
-          <div className="modal-top">
-            <h1>Enter A Time Block</h1>
-            <img
-              src={close}
-              onClick={() => closeModal()}
-              className="modal-close-button"
-            />
-          </div>
-          <div className="modal-form-input-container">
-            <label className="text-label">Start Time:</label>
-            <input
-              type="time"
-              className="text-input"
-              onChange={(e) => setStartTime(e.target.value)}
-            />
-          </div>
-          <div className="modal-form-input-container">
-            <label className="text-label">End Time:</label>
-            <input
-              type="time"
-              className="text-input"
-              onChange={(e) => setEndTime(e.target.value)}
-            />
-          </div>
-          <div className="modal-form-input-container">
-            <label className="text-label">Availability:</label>
-            <select
-              className="text-input"
-              onChange={(e) => setIsAvailableAppt(e.target.value === "true")}
-            >
-              <option value={true}>Open</option>
-              <option value={false}>Closed</option>
-            </select>
-          </div>
-          <div className="modal-form-input-container">
-            <label className="text-label">Split into 1-hour blocks:</label>
-            <input
-              type="checkbox"
-              onChange={(e) => setSplitIntoHourBlocks(e.target.checked)}
-            />
-          </div>
-          <div className="modal-form-input-container">
-            <label className="text-label">Extend Date:</label>
-            <input
-              type="date"
-              className="text-input"
-              value={format(dateOfEvent, "yyyy-MM-dd")}
-              onChange={(e) => setExtendDate(e.target.value)}
-            />
-          </div>
-          <div className="error-message">{error && error}</div>
-          <button type="submit" className="submit-button">
-            Save Schedule
-          </button>
-        </form>
-      </div>
+      <form className="form-client" onSubmit={addDatesToStorage}>
+        {" "}
+        <div className="modal-top">
+          <h1>Enter A Time Block</h1>
+          <img
+            src={close}
+            onClick={() => closeModal()}
+            className="modal-close-button"
+          />
+        </div>
+        <div className="modal-form-input-container">
+          <label className="text-label">Start Time:</label>
+          <input
+            type="time"
+            className="text-input"
+            onChange={(e) => setStartTime(e.target.value)}
+          />
+        </div>
+        <div className="modal-form-input-container">
+          <label className="text-label">End Time:</label>
+          <input
+            type="time"
+            className="text-input"
+            onChange={(e) => setEndTime(e.target.value)}
+          />
+        </div>
+        <div className="modal-form-input-container">
+          <label className="text-label">Availability:</label>
+          <select
+            className="text-input"
+            onChange={(e) => setIsAvailableAppt(e.target.value === "true")}
+          >
+            <option value={true}>Open</option>
+            <option value={false}>Closed</option>
+          </select>
+        </div>
+        <div className="modal-form-input-container">
+          <label className="text-label">Split into 1-hour blocks:</label>
+          <input
+            type="checkbox"
+            onChange={(e) => setSplitIntoHourBlocks(e.target.checked)}
+          />
+        </div>
+        <div className="modal-form-input-container">
+          <label className="text-label">Extend Date:</label>
+          <input
+            type="date"
+            className="text-input"
+            value={format(dateOfEvent, "yyyy-MM-dd")}
+            onChange={(e) => setExtendDate(e.target.value)}
+          />
+        </div>
+        <div className="error-message">{error && error}</div>
+        <button type="submit" className="submit-button">
+          Save Schedule
+        </button>
+      </form>
     </div>
   );
 }
