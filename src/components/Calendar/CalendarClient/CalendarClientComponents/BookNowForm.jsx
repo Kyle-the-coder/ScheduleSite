@@ -71,7 +71,8 @@ export function BookNowForm({
 
           // Send email using EmailJS
           const templateParams = {
-            from_name: firstName - lastName,
+            from_first_name: firstName,
+            from_last_name: lastName,
             from_email: email,
             from_description: description,
             from_date: reFormattedDate,
@@ -91,7 +92,8 @@ export function BookNowForm({
             }
           );
 
-          setName("");
+          setFirstName("");
+          setLastName("");
           setEmail("");
           setDescription("");
           setTimeBlock("");
@@ -119,7 +121,7 @@ export function BookNowForm({
           className={`book-now-main-container ${isBnActive ? "active" : ""}`}
         >
           <div className="book-now-container">
-            <form className="form">
+            <form className="form" onSubmit={addClientToTimeBlock}>
               <div className="book-now-close-container">
                 <img
                   src={closeButton}
@@ -177,6 +179,7 @@ export function BookNowForm({
                   placeholder=""
                   required=""
                   rows="7"
+                  onChange={(e) => setDescription(e.target.value)}
                 />
                 <span>Description *</span>
               </label>
