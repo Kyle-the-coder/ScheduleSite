@@ -12,8 +12,7 @@ import {
 import "./CalendarClientStyles/calendarclient.css";
 import { SeeTimeBlocksClient } from "./CalendarClientComponents/SeeTimeBlockClient";
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "../../../firebase";
-import { useBookNowModal } from "../../context/BookNowModal";
+import { db } from "../../../../firebase";
 
 const CalendarClient = () => {
   const [fullScheduleList, setFullScheduleList] = useState([]);

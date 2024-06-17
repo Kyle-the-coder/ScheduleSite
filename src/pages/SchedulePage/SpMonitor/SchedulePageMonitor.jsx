@@ -3,19 +3,12 @@ import blueCircle from "../../../assets/record.png";
 import "./schedulepagemonitor.css";
 import weights from "../../../assets/WakeUpWorkout.jpg";
 import { BannerMonitor } from "../../../components/Banner/BannerMonitor/BannerMonitor";
-import { useBookNowModal } from "../../../components/context/BookNowModal";
-import { BookNowForm } from "../../../components/Calendar/CalendarClient/CalendarClientComponents/BookNowForm";
 
-// Dynamically import the components
 const CalendarClient = React.lazy(() =>
-  import("../../../components/Calendar/CalendarClient/CalendarClient")
-);
-const CalendarAdmin = React.lazy(() =>
-  import("../../../components/Calendar/CalendarAdmin/CalendarAdmin")
+  import("../../../components/Calendar/CalendarClient/CCMonitor/CalendarClient")
 );
 
 export function SchedulePageMonitor() {
-  const { isBnActive, setIsBnActive } = useBookNowModal();
   return (
     <div className="schedule-page-mont-main-container">
       <Suspense fallback={<div>Loading...</div>}>
@@ -46,11 +39,8 @@ export function SchedulePageMonitor() {
         </div>
       </div>
 
-      {/* Use Suspense to wrap the dynamically imported components */}
       <Suspense fallback={<div>Loading...</div>}>
         <CalendarClient />
-        {/* Uncomment this line if you need CalendarAdmin */}
-        {/* <CalendarAdmin /> */}
       </Suspense>
     </div>
   );
