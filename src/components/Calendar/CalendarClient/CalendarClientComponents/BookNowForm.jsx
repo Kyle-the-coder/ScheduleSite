@@ -22,6 +22,7 @@ export function BookNowForm({
   const emailId = import.meta.env.VITE_EMAIL_ID;
   const templateId = import.meta.env.VITE_EMAIL_TEMPLATE_ID;
   const emailUserId = import.meta.env.VITE_EMAIL_USER_ID;
+  const clientEmailTemplateId = import.meta.env.VITE_CLIENT_EMAIL_TEMPLATE_ID;
 
   function closeModal() {
     setIsBnActive(false);
@@ -79,6 +80,12 @@ export function BookNowForm({
             from_time: formattedTime,
           };
 
+          const clientTemplateParams = {
+            from_first_name: firstName,
+            from_last_name: lastName,
+            from_date: reFormattedDate,
+            from_time: formattedTime,
+          };
           emailjs.send(emailId, templateId, templateParams, emailUserId).then(
             (response) => {
               console.log(
@@ -91,6 +98,25 @@ export function BookNowForm({
               console.error("Failed to send email.", error);
             }
           );
+          emailjs
+            .send(
+              emailId,
+              clientEmailTemplateId,
+              clientTemplateParams,
+              emailUserId
+            )
+            .then(
+              (response) => {
+                console.log(
+                  "Email sent successfully!",
+                  response.status,
+                  response.text
+                );
+              },
+              (error) => {
+                console.error("Failed to send email.", error);
+              }
+            );
 
           setFirstName("");
           setLastName("");
