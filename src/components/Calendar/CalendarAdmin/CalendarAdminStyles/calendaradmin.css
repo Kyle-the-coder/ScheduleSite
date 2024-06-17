@@ -1,10 +1,10 @@
 .calendar-main-container {
   width: 100%;
   background-color: #979797;
-  height: 70vh;
+
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   box-shadow: 10px 15px 20px rgba(100, 100, 100, 0.5),
     inset 3px 4px 2px rgba(255, 255, 255, 0.5);
 }
@@ -22,7 +22,7 @@
 }
 .see-sched-main-container {
   width: 35%;
-  height: 100%;
+  height: auto;
   background-color: aqua;
   margin: 0 auto;
   display: flex;

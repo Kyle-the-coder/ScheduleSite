@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import close from "../../../../assets/close.png";
+import close from "../../../../assets/x-button.png";
 import "../CalendarAdminStyles/addtimeblockadmin.css";
 import gsap from "gsap";
 import {
@@ -164,29 +164,30 @@ export function AddTimeBlockDisplay({
     }
   }
 
-  // useEffect(() => {
-  //   if (isAddScheduleModalActive) {
-  //     const modal = document.querySelector(".modal-container");
-  //     gsap.fromTo(
-  //       modal,
-  //       { x: "100%", visibility: "visible", boxShadow: "none" },
-  //       { x: "0%", duration: 1.2, ease: "power4.out" }
-  //     );
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (isAddScheduleModalActive) {
+      const modal = document.querySelector(".modal-container");
+      gsap.fromTo(
+        modal,
+        { x: "100%", visibility: "visible", boxShadow: "none" },
+        { x: "0%", duration: 1.2, ease: "power4.out" }
+      );
+    }
+  }, []);
 
   return (
     <div className="modal-container">
-      <div className="modal-top">
-        <h1>Enter A Time Block</h1>
-        <img
-          src={close}
-          onClick={() => closeModal()}
-          className="modal-close-button"
-        />
-      </div>
       <div className="modal-form-container">
         <form className="form-client" onSubmit={addDatesToStorage}>
+          {" "}
+          <div className="modal-top">
+            <h1>Enter A Time Block</h1>
+            <img
+              src={close}
+              onClick={() => closeModal()}
+              className="modal-close-button"
+            />
+          </div>
           <div className="modal-form-input-container">
             <label className="text-label">Start Time:</label>
             <input
