@@ -144,11 +144,13 @@ export function BookNowFormPhone({
     <>
       {isBnActive && (
         <div
-          className={`book-now-main-container ${isBnActive ? "active" : ""}`}
+          className={`book-now-main-container-phone ${
+            isBnActive ? "active" : ""
+          }`}
         >
-          <div className="book-now-container">
-            <form className="form" onSubmit={addClientToTimeBlock}>
-              <div className="book-now-close-container">
+          <div className="book-now-container-phone">
+            <form className="form-phone" onSubmit={addClientToTimeBlock}>
+              <div className="book-now-close-container-phone">
                 <img
                   src={closeButton}
                   width="30px"
@@ -156,17 +158,17 @@ export function BookNowFormPhone({
                   onClick={() => closeModal()}
                 />
               </div>
-              <p className="title">Book Appointment </p>
-              <div className="book-now-form-input-container">
+              <p className="title-phone">Book Appointment </p>
+              <div className="book-now-form-input-container-phone">
                 <h2 className="m0">
                   Time: {displayStartTime}-{displayEndTime}
                 </h2>
               </div>
-              <p className="message">Those marked with * are required </p>
-              <div className="flex">
+              <p className="message-phone">Those marked with * are required </p>
+              <div className="flex-phone">
                 <label>
                   <input
-                    className="input"
+                    className="input-phone"
                     type="text"
                     placeholder=""
                     required=""
@@ -177,7 +179,7 @@ export function BookNowFormPhone({
 
                 <label>
                   <input
-                    className="input"
+                    className="input-phone"
                     type="text"
                     placeholder=""
                     required=""
@@ -189,7 +191,7 @@ export function BookNowFormPhone({
 
               <label>
                 <input
-                  className="input"
+                  className="input-phone"
                   type="email"
                   placeholder=""
                   required=""
@@ -200,7 +202,7 @@ export function BookNowFormPhone({
 
               <label>
                 <textarea
-                  className="input"
+                  className="input-phone"
                   type="text"
                   placeholder=""
                   required=""
@@ -210,7 +212,7 @@ export function BookNowFormPhone({
                 <span>Description *</span>
               </label>
 
-              <button className="submit">Book Appointment</button>
+              <button className="submit-phone">Book Appointment</button>
             </form>
           </div>
         </div>

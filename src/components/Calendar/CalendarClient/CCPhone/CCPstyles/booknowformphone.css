@@ -1,4 +1,4 @@
-.book-now-main-container {
+.book-now-main-container-phone {
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.6);
@@ -6,7 +6,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: fixed; /* Fixed position to cover the entire viewport */
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 9999; /* Ensure it's on top of other content */
@@ -15,39 +15,39 @@
   transition: visibility 0s, opacity 0.3s ease-in-out; /* Smooth transition */
 }
 
-.book-now-main-container.active {
+.book-now-main-container-phone.active {
   visibility: visible; /* Make visible when active */
   opacity: 1; /* Fully opaque when active */
 }
 
-.book-now-close-container {
+.book-now-close-container-phone {
   width: 100%;
   display: flex;
   justify-content: end;
   align-items: center;
   height: fit-content;
 }
-.book-now-container {
-  width: 600px;
+.book-now-container-phone {
+  width: 100vw;
   height: 650px;
+  margin-right: 10px;
   display: flex;
   position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: white;
-
   border-radius: 20px;
   z-index: 1;
 }
 
-.book-now-close-button {
+.book-now-close-button-phone {
   width: 30px;
   height: 30px;
   cursor: pointer;
 }
 
-.error-message {
+.error-message-phone {
   width: 100%;
   height: 20px;
   display: flex;
@@ -56,11 +56,11 @@
   color: red;
 }
 
-.form {
+.form-phone {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 90%;
+  width: 87%;
   height: 90%;
   padding: 20px;
   border-radius: 20px;
@@ -70,7 +70,7 @@
   border: 1px solid #333;
 }
 
-.title {
+.title-phone {
   font-size: 38px;
   font-weight: 600;
   letter-spacing: -1px;
@@ -83,19 +83,19 @@
   color: rgb(250, 196, 249);
 }
 
-.title::before {
+.title-phone::before {
   width: 18px;
   height: 18px;
 }
 
-.title::after {
+.title-phone::after {
   width: 18px;
   height: 18px;
   animation: pulse 1s linear infinite;
 }
 
-.title::before,
-.title::after {
+.title-phone::before,
+.title-phone::after {
   position: absolute;
   content: "";
   height: 16px;
@@ -105,36 +105,36 @@
   background-color: rgb(250, 196, 249);
 }
 
-.message,
-.signin {
+.message-phone,
+.signin-phone {
   font-size: 14.5px;
   color: rgba(255, 255, 255, 0.7);
 }
 
-.signin {
+.signin-phone {
   text-align: center;
 }
 
-.signin a:hover {
+.signin-phone a:hover {
   text-decoration: underline rgb(250, 196, 249);
 }
 
-.signin a {
+.signin-phone a {
   color: rgb(250, 196, 249);
 }
 
-.flex {
+.flex-phone {
   display: flex;
   width: 100%;
-  gap: 30px;
+  gap: 20px;
 }
 
-.form label {
+.form-phone label {
   position: relative;
   margin-bottom: 2%;
 }
 
-.form label .input {
+.form-phone label .input-phone {
   background-color: #333;
   color: #fff;
   width: 96%;
@@ -144,7 +144,7 @@
   border-radius: 10px;
 }
 
-.form label .input + span {
+.form-phone label .input-phone + span {
   color: rgba(255, 255, 255, 0.5);
   position: absolute;
   left: 10px;
@@ -154,24 +154,24 @@
   transition: 0.3s ease;
 }
 
-.form label .input:placeholder-shown + span {
+.form-phone label .input-phone:placeholder-shown + span {
   top: 12.5px;
   font-size: 0.9em;
 }
 
-.form label .input:focus + span,
-.form label .input:valid + span {
+.form-phone label .input-phone:focus + span,
+.form-phone label .input-phone:valid + span {
   color: rgb(250, 196, 249);
   top: 0px;
   font-size: 0.9em;
   font-weight: 600;
 }
 
-.input {
+.input-phone {
   font-size: medium;
 }
 
-.submit {
+.submit-phone {
   border: none;
   outline: none;
   padding: 10px;
@@ -183,7 +183,7 @@
   background-color: rgb(250, 196, 249);
 }
 
-.submit:hover {
+.submit-phone:hover {
   background-color: rgb(220, 129, 219);
 }
 
