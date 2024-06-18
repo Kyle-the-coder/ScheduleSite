@@ -6,10 +6,6 @@ import { BannerMonitor } from "../../../components/Banner/BannerMonitor/BannerMo
 import { auth } from "../../../firebase";
 import { signOut } from "firebase/auth";
 
-// Dynamically import the components
-const CalendarClient = React.lazy(() =>
-  import("../../../components/Calendar/CalendarClient/CalendarClient")
-);
 const CalendarAdmin = React.lazy(() =>
   import("../../../components/Calendar/CalendarAdmin/CalendarAdmin")
 );

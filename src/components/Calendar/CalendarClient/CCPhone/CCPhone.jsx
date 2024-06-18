@@ -9,10 +9,10 @@ import {
   isSameMonth,
   isToday,
 } from "date-fns";
-import "./CCPstyles/ccphone.css";
 import { CCTimeblockPhone } from "./CCPcomponents/CCTimeblockPhone";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../../../firebase";
+import "./CCPstyles/ccphone.css";
 
 const CalendarClientPhone = () => {
   const [fullScheduleList, setFullScheduleList] = useState([]);
@@ -67,14 +67,14 @@ const CalendarClientPhone = () => {
   }, [updateTrigger, isAddScheduleModalActive, isModalActive]);
 
   return (
-    <div className="calendar-client-main-container">
-      <div className="calendar-client">
-        <div className="calendar-client-header">
+    <div className="calendar-client-main-container-phone">
+      <div className="calendar-client-phone">
+        <div className="calendar-client-header-phone">
           <button onClick={goToPreviousMonth}>&lt;</button>
           <h2>{format(startDateOfMonth, "MMMM yyyy")}</h2>
           <button onClick={goToNextMonth}>&gt;</button>
         </div>
-        <div className="calendar-client-grid">
+        <div className="calendar-client-grid-phone">
           {allDaysInGrid.map((day, index) => {
             const formattedDate = format(day, "MM/dd/yy");
             const hasEvent =
@@ -88,29 +88,31 @@ const CalendarClientPhone = () => {
             return (
               <div
                 key={index}
-                className={`calendar-client-day ${
-                  !isSameMonth(day, startDateOfMonth) && "cc-other-month"
-                }  ${!hasEvent && "cc-no-event"} ${
-                  isSelectedDate ? "cc-selected-date" : ""
+                className={`calendar-client-day-phone ${
+                  !isSameMonth(day, startDateOfMonth) && "cc-other-month-phone"
+                }  ${!hasEvent && "cc-no-event-phone"} ${
+                  isSelectedDate ? "cc-selected-date-phone" : ""
                 }`}
                 onClick={() => handleSeeSchedClick(day)}
               >
-                <div className={`calendar-client-day-num `}>
+                <div className={`calendar-client-day-num-phone `}>
                   <p
-                    className={`calendar-client-num ${
-                      isToday(day) ? "cc-current-day" : ""
+                    className={`calendar-client-num-phone ${
+                      isToday(day) ? "cc-current-day-phone" : ""
                     }`}
                   >
                     {format(day, "d")}
                   </p>
                 </div>
-                {hasEvent && <div className="cc-full-schedule-circle"></div>}
+                {hasEvent && (
+                  <div className="cc-full-schedule-circle-phone"></div>
+                )}
               </div>
             );
           })}
         </div>
       </div>
-      <div className="see-tbc-main-container">
+      <div className="see-tbc-main-container-phone">
         <CCTimeblockPhone
           dateOfEvent={dateOfEvent}
           setIsModalActive={setIsModalActive}

@@ -99,13 +99,13 @@ export function CCTimeblockPhone({ setUpdateTrigger, dateOfEvent }) {
   }, [timeBlock]);
 
   return (
-    <div className="see-timeblock-client-main-container">
-      <div className="timeblock-client-display-container">
-        <div className="tbc-display-top">
+    <div className="see-timeblock-client-main-container-phone">
+      <div className="timeblock-client-display-container-phone">
+        <div className="tbc-display-top-phone">
           <h1 className="font2 m0">{formattedDate}</h1>
           <p className="m0 f1-2">please click on available time below</p>
         </div>
-        <div className="tbc-sched-container">
+        <div className="tbc-sched-container-phone">
           {dayScheduleList.length === 0 ? (
             <h3 style={{ margin: "0 auto", marginTop: "35%" }}>
               No Appointments on this Date
@@ -142,27 +142,27 @@ export function CCTimeblockPhone({ setUpdateTrigger, dateOfEvent }) {
                       ? "lightGreen"
                       : "lightCoral",
                   }}
-                  className={`tbc-container ${
-                    isSelected ? "selected-tbc" : ""
+                  className={`tbc-container-phone ${
+                    isSelected ? "selected-tbc-phone" : ""
                   }`}
                   onClick={() => handleTimeBlockClick(sched)}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
-                  <h4 className="tbc">
+                  <h4 className="tbc-phone">
                     {startTime} - {endTime}
                   </h4>
                   {sched.isAvailableAppt ? (
-                    <h4 className="tbc-end">Available</h4>
+                    <h4 className="tbc-end-phone">Available</h4>
                   ) : (
-                    <h4 className="tbc-end">Booked</h4>
+                    <h4 className="tbc-end-phone">Booked</h4>
                   )}
                 </div>
               );
             })
           )}
         </div>
-        <div className="book-now-button-container">
+        <div className="book-now-button-container-phone">
           <FormButton
             buttonName="Book Now"
             buttonFunction={handleAddTimeBlockModal}

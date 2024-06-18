@@ -1,8 +1,9 @@
-.calendar-client-main-container {
+.calendar-client-main-container-phone {
   width: 100%;
   height: fit-content;
   background-color: #979797;
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
   position: relative;
@@ -10,18 +11,17 @@
     inset 3px 4px 2px rgba(255, 255, 255, 0.5);
 }
 
-.calendar-client {
+.calendar-client-phone {
   font-family: Arial, sans-serif;
   background-color: rgb(255, 236, 252);
-  padding: 0px 10px;
-  width: 65%;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
-.see-tbc-main-container {
-  width: 35%;
+.see-tbc-main-container-phone {
+  width: 100%;
   height: auto;
   margin: 0 auto;
   display: flex;
@@ -29,28 +29,28 @@
   flex-grow: 1;
 }
 
-.calendar-client-header {
+.calendar-client-header-phone {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
 }
 
-.calendar-client-header button {
+.calendar-client-header-phone button {
   background-color: transparent;
   border: none;
   cursor: pointer;
   font-size: 1.5rem;
 }
 
-.calendar-client-grid {
+.calendar-client-grid-phone {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   width: 100%;
   margin-bottom: 2%;
 }
 
-.calendar-client-day {
+.calendar-client-day-phone {
   border: 1px solid #ccc;
   display: flex;
   background-color: white;
@@ -61,32 +61,32 @@
   width: 100%;
   padding-bottom: 100%;
   cursor: pointer;
-  height: 100px;
+  height: 85px;
   box-sizing: border-box;
   position: relative;
 }
 
-.calendar-client-day-num {
+.calendar-client-day-num-phone {
   width: 100%;
   height: 30%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
 }
-.calendar-client-day:hover {
+.calendar-client-day-phone:hover {
   background-color: #3690de98;
 }
 
-.cc-no-event {
+.cc-no-event-phone {
   color: #979797;
   background-color: #e5e5e5;
 }
-.cc-other-month {
+.cc-other-month-phone {
   color: #979797;
   background-color: #cccccc;
 }
 
-.cc-current-day {
+.cc-current-day-phone {
   background-color: rgb(249, 162, 176);
   border-radius: 50%;
   display: flex;
@@ -94,20 +94,20 @@
   align-items: flex-start;
   color: black;
 }
-.calendar-client-num {
+.calendar-client-num-phone {
   margin: 0;
   padding: 5px;
 }
-.cc-full-schedule-circle {
+.cc-full-schedule-circle-phone {
   position: absolute;
-  top: 50%;
+  top: 63%;
   left: 50%;
   width: 67%;
-  height: 67%;
+  height: 47%;
   background-color: #2095c8c0;
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }
-.cc-selected-date {
+.cc-selected-date-phone {
   box-shadow: inset 0 0 0 2px blue;
 }
