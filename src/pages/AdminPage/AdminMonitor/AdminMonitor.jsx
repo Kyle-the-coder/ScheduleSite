@@ -7,7 +7,7 @@ import { auth } from "../../../firebase";
 import { signOut } from "firebase/auth";
 
 const CalendarAdmin = React.lazy(() =>
-  import("../../../components/Calendar/CalendarAdmin/CalendarAdmin")
+  import("../../../components/Calendar/CalendarAdmin/CAMonitor/CalendarAdmin")
 );
 
 export function AdminMonitor() {

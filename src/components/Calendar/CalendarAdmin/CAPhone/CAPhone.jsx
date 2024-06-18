@@ -12,13 +12,13 @@ import {
   parse,
   endOfMonth,
 } from "date-fns";
-import "./CalendarAdminStyles/calendaradmin.css";
 import { SeeTimeBlocksAdmin } from "./CalendarAdminComponents/SeeTimeBlocksAdmin";
-import { useExtendDate } from "../calendarContext/ExtendDateContext";
-import { db } from "../../../firebase";
+import { useExtendDate } from "../../calendarContext/ExtendDateContext";
+import { db } from "../../../../firebase";
 import { getDoc, doc } from "firebase/firestore";
+import "./CAstyles/caphone.css";
 
-const CalendarAdmin = () => {
+const CAPhone = () => {
   const [fullScheduleList, setFullScheduleList] = useState([]);
   const { extendDate, setExtendDate } = useExtendDate();
 
@@ -132,4 +132,4 @@ const CalendarAdmin = () => {
   );
 };
 
-export default CalendarAdmin;
+export default CAPhone;

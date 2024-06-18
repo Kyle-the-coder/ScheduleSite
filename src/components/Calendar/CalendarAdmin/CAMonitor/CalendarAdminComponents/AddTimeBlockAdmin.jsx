@@ -1,13 +1,13 @@
 import { useContext, useEffect, useState } from "react";
-import close from "../../../../assets/x-button.png";
+import close from "../../../../../assets/x-button.png";
 import "../CalendarAdminStyles/addtimeblockadmin.css";
 import gsap from "gsap";
 import {
   ExtendDateContext,
   useExtendDate,
-} from "../../calendarContext/ExtendDateContext";
+} from "../../../calendarContext/ExtendDateContext";
 import { format, parse } from "date-fns";
-import { db } from "../../../../firebase"; // Adjust the import path as necessary
+import { db } from "../../../../../firebase"; // Adjust the import path as necessary
 import { doc, setDoc, getDoc, updateDoc, arrayUnion } from "firebase/firestore";
 
 export function AddTimeBlockDisplay({

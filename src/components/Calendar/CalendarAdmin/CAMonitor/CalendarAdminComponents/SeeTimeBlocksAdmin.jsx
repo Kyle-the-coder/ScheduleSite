@@ -1,10 +1,10 @@
 import "../CalendarAdminStyles/seetimeblockadmin.css";
-import tbDelete from "../../../../assets/close.png";
+import tbDelete from "../../../../../assets/x-button.png";
 import { useEffect, useState } from "react";
 import { parse, format } from "date-fns";
 import { AddTimeBlockDisplay } from "./AddTimeBlockAdmin";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { db } from "../../../../firebase";
+import { db } from "../../../../../firebase";
 
 export function SeeTimeBlocksAdmin({ setUpdateTrigger, dateOfEvent }) {
   const [fullScheduleList, setFullScheduleList] = useState([]);
