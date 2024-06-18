@@ -16,7 +16,7 @@ import { SeeTimeBlocksAdmin } from "./CalendarAdminComponents/SeeTimeBlocksAdmin
 import { useExtendDate } from "../../calendarContext/ExtendDateContext";
 import { db } from "../../../../firebase";
 import { getDoc, doc } from "firebase/firestore";
-import "./CAstyles/caphone.css";
+import "./CAPstyles/caphone.css";
 
 const CAPhone = () => {
   const [fullScheduleList, setFullScheduleList] = useState([]);

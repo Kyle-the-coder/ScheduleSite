@@ -1,0 +1,91 @@
+.modal-container {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  visibility: hidden;
+}
+
+.modal-top {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-close-button {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.modal-form-input-container {
+  width: 90%;
+  margin-top: 2%;
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-input {
+  width: 50%;
+  border-radius: 0.5rem;
+  padding: 15px 0px 15px 5px;
+  border: none;
+  font-size: 1.2rem;
+  background-color: rgba(191, 237, 236, 0.712);
+}
+
+.text-label {
+  width: fit-content;
+  margin-right: 4%;
+  display: flex;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+.submit-button {
+  padding: 8px 20px 8px 20px;
+  background-color: lightgreen;
+  font-size: 1.5rem;
+  border: 2px solid black;
+  border-radius: 0.5rem;
+  box-shadow: 5px 5px 4px rgba(100, 100, 100, 0.5),
+    inset 2px 2px 2px rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.7s;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.form-client {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 91.5%;
+  padding: 30px 20px;
+  height: auto;
+  border-radius: 20px;
+  position: relative;
+  background-color: #1a1a1a;
+  color: #fff;
+  border: 1px solid #333;
+}
+.error-message {
+  width: 100%;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+}
