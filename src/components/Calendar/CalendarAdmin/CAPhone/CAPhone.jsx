@@ -72,14 +72,14 @@ const CAPhone = () => {
   }, [updateTrigger]);
 
   return (
-    <div className="calendar-main-container">
-      <div className="calendar">
-        <div className="calendar-header">
+    <div className="calendar-main-container-phone">
+      <div className="calendar-phone">
+        <div className="calendar-header-phone">
           <button onClick={goToPreviousMonth}>&lt;</button>
           <h2>{format(startDateOfMonth, "MMMM yyyy")}</h2>
           <button onClick={goToNextMonth}>&gt;</button>
         </div>
-        <div className="calendar-grid">
+        <div className="calendar-grid-phone">
           {allDaysInGrid.map((day, index) => {
             const formattedDate = format(day, "MM/dd/yy");
             const hasEvent =
@@ -99,29 +99,29 @@ const CAPhone = () => {
             return (
               <div
                 key={index}
-                className={`calendar-day ${
-                  !isSameMonth(day, currentMonth) ? "other-month" : ""
-                } ${isHighlighted ? "highlighted" : ""} ${
-                  isSelectedDate ? "cc-selected-date" : ""
+                className={`calendar-day-phone ${
+                  !isSameMonth(day, currentMonth) ? "other-month-phone" : ""
+                } ${isHighlighted ? "highlighted-phone" : ""} ${
+                  isSelectedDate ? "cc-selected-date-phone" : ""
                 }`}
                 onClick={() => handleSeeSchedClick(day)}
               >
-                <div className={`calendar-day-num `}>
+                <div className={`calendar-day-num-phone `}>
                   <p
-                    className={`calendar-num ${
-                      isToday(day) ? "current-day" : ""
+                    className={`calendar-num-phone ${
+                      isToday(day) ? "current-day-phone" : ""
                     }`}
                   >
                     {format(day, "d")}
                   </p>
                 </div>
-                {hasEvent && <div className="full-schedule-circle"></div>}
+                {hasEvent && <div className="full-schedule-circle-phone"></div>}
               </div>
             );
           })}
         </div>
       </div>
-      <div className="see-sched-main-container">
+      <div className="see-sched-main-container-phone">
         <CAPSeeTimeBlock
           dateOfEvent={dateOfEvent}
           updateTrigger={updateTrigger}

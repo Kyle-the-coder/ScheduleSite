@@ -133,13 +133,13 @@ export function CAPSeeTimeBlock({ setUpdateTrigger, dateOfEvent }) {
   }, [dateOfEvent]);
 
   return (
-    <div className="see-timeblock-main-container">
-      <div className="timeblock-display-container">
-        <div className="tb-display-top">
+    <div className="see-timeblock-main-container-phone">
+      <div className="timeblock-display-container-phone">
+        <div className="tb-display-top-phone">
           <p className="m0 f1-5">Schedule for:</p>
           <h1 className="m0">{formattedDate}</h1>
         </div>
-        <div className="tb-sched-container">
+        <div className="tb-sched-container-phone">
           {dayScheduleList.length === 0 ? (
             <h3 style={{ margin: "0 auto", marginTop: "35%" }}>
               No Time Blocks on this Date
@@ -176,23 +176,23 @@ export function CAPSeeTimeBlock({ setUpdateTrigger, dateOfEvent }) {
                       ? "lightGreen"
                       : "lightCoral",
                   }}
-                  className="tb-container"
+                  className="tb-container-phone"
                   onClick={() => handleTimeBlockClick(sched)}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
-                  <h4 className="tb">
+                  <h4 className="tb-phone">
                     {startTime} - {endTime}
                   </h4>
-                  <div className="tb-delete-container">
+                  <div className="tb-delete-container-phone">
                     {sched.isAvailableAppt ? (
-                      <h4 className="tb-end">Available</h4>
+                      <h4 className="tb-end-phone">Available</h4>
                     ) : (
-                      <h4 className="tb-end">Booked</h4>
+                      <h4 className="tb-end-phone">Booked</h4>
                     )}
                     <img
                       src={tbDelete}
-                      className="tb-delete"
+                      className="tb-delete-phone"
                       onClick={() => deleteTb(sched)}
                     />
                   </div>
@@ -201,9 +201,9 @@ export function CAPSeeTimeBlock({ setUpdateTrigger, dateOfEvent }) {
             })
           )}
         </div>
-        <div className="add-schedule-button-container">
+        <div className="add-schedule-button-container-phone">
           <button
-            className="tb-submit-button"
+            className="tb-submit-button-phone"
             disabled={isAddScheduleModalActive}
             onClick={() => handleAddTimeBlockModal()}
           >

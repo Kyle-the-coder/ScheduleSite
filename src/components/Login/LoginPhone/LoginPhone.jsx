@@ -5,12 +5,14 @@ import {
   createUserWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../../../firebase";
+import { useNavigate } from "react-router-dom";
 
 function LoginPhone() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isRegister, setIsRegister] = useState(false);
+  const navigate = useNavigate();
 
   const handleAuthAction = async (e) => {
     e.preventDefault();
@@ -23,6 +25,7 @@ function LoginPhone() {
       }
       setError("");
       alert("Authentication successful!");
+      navigate("/admin");
     } catch (error) {
       setError(error.message);
     }
