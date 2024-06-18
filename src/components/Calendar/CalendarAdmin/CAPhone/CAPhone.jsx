@@ -12,10 +12,10 @@ import {
   parse,
   endOfMonth,
 } from "date-fns";
-import { SeeTimeBlocksAdmin } from "./CalendarAdminComponents/SeeTimeBlocksAdmin";
 import { useExtendDate } from "../../calendarContext/ExtendDateContext";
 import { db } from "../../../../firebase";
 import { getDoc, doc } from "firebase/firestore";
+import { CAPSeeTimeBlock } from "./CAPcomponents/CAPSeeTimeBlock";
 import "./CAPstyles/caphone.css";
 
 const CAPhone = () => {
@@ -122,7 +122,7 @@ const CAPhone = () => {
         </div>
       </div>
       <div className="see-sched-main-container">
-        <SeeTimeBlocksAdmin
+        <CAPSeeTimeBlock
           dateOfEvent={dateOfEvent}
           updateTrigger={updateTrigger}
           setUpdateTrigger={setUpdateTrigger}

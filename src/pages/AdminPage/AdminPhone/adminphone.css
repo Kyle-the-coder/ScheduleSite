@@ -1,0 +1,33 @@
+.admin-page-mont-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 10%;
+}
+
+.admin-page-intro-container {
+  width: 100%;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-family: "Font2", sans-serif;
+}
+
+.logout-button {
+  width: fit-content;
+  padding: 15px 23px 15px 23px;
+  background-color: rgb(250, 196, 249);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  border: none;
+  margin: 0 auto;
+  cursor: pointer;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3),
+    inset -3px -3px 5px rgba(0, 0, 0, 0.3);
+}

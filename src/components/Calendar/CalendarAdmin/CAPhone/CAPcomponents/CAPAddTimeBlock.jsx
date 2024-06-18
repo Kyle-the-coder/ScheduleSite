@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import close from "../../../../../assets/x-button.png";
-import "../CAPstyles/captimeblock.css";
 import gsap from "gsap";
 import {
   ExtendDateContext,
@@ -9,8 +8,9 @@ import {
 import { format, parse } from "date-fns";
 import { db } from "../../../../../firebase"; // Adjust the import path as necessary
 import { doc, setDoc, getDoc, updateDoc, arrayUnion } from "firebase/firestore";
+import "../CAPstyles/capaddtimeblock.css";
 
-export function CAPTimeBlock({
+export function CAPAddTimeBlock({
   dateOfEvent,
   setIsAddScheduleModalActive,
   setUpdateTrigger,
