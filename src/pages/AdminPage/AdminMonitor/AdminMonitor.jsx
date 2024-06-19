@@ -1,8 +1,7 @@
 import React, { Suspense } from "react";
-import blueCircle from "../../../assets/record.png";
 import "./adminmonitor.css";
 import weights from "../../../assets/WakeUpWorkout.jpg";
-import { BannerMonitor } from "../../../components/Banner/BannerMonitor/BannerMonitor";
+import BannerMonitor from "../../../components/Banner/BannerMonitor/BannerMonitor";
 import { auth } from "../../../firebase";
 import { signOut } from "firebase/auth";
 

@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import blueCircle from "../../../assets/record.png";
 import "./schedulepagemonitor.css";
 import weights from "../../../assets/WakeUpWorkout.jpg";
-import { BannerMonitor } from "../../../components/Banner/BannerMonitor/BannerMonitor";
+import BannerMonitor from "../../../components/Banner/BannerMonitor/BannerMonitor";
 
 const CalendarClient = React.lazy(() =>
   import("../../../components/Calendar/CalendarClient/CCMonitor/CalendarClient")
@@ -11,9 +11,13 @@ const CalendarClient = React.lazy(() =>
 export function SchedulePageMonitor() {
   return (
     <div className="schedule-page-mont-main-container">
-      <Suspense fallback={<div>Loading...</div>}>
-        <BannerMonitor bannerImg={weights} />
-      </Suspense>
+      <BannerMonitor
+        img={weights}
+        title="Schedule"
+        desc="Find the right time and day for you"
+        side={true}
+        position="0 47%"
+      />
 
       <div className="schedule-page-intro-container">
         <h2>
