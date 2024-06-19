@@ -1,13 +1,17 @@
-import weights from "../../../assets/wakeUp.jpg";
 import "./servicespagemonitor.css";
 import BannerMonitor from "../../../components/Banner/BannerMonitor/BannerMonitor";
 import ServiceDisplayMonitor from "../../../components/ServiceDisplay/SDMonitor/ServiceDisplayMonitor";
+import weights from "../../../assets/wakeUp.jpg";
 export function ServicesPageMonitor() {
   return (
     <div className="services-page-mont-main-container">
       <BannerMonitor
         img={weights}
-        title="Services"
+        title={
+          <h1 className=" m0 font3 f4 text-shadow">
+            <span className="pinkText">S</span>ervices
+          </h1>
+        }
         desc="We provide some of the most reknown and up-to-date services to help you build strength and confidence"
         side={true}
         position="0 47%"

@@ -6,7 +6,11 @@ export function AboutMePageMonitor() {
     <div className="about-me-page-mont-main-container">
       <BannerMonitor
         img={weights}
-        title="About Me"
+        title={
+          <h1 className=" m0 font3 f4 text-shadow">
+            <span className="pinkText">A</span>bout Me
+          </h1>
+        }
         desc="Quick peak into my experience"
         side={true}
         position="0 47%"

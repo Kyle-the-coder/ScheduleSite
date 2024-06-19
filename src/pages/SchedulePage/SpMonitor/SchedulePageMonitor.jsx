@@ -13,7 +13,11 @@ export function SchedulePageMonitor() {
     <div className="schedule-page-mont-main-container">
       <BannerMonitor
         img={weights}
-        title="Schedule"
+        title={
+          <h1 className=" m0 font3 f4 text-shadow">
+            <span className="pinkText">S</span>chedule
+          </h1>
+        }
         desc="Find the right time and day for you"
         side={true}
         position="0 47%"
