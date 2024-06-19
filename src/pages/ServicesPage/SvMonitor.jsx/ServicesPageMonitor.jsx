@@ -1,4 +1,4 @@
-import weights from "../../../assets/yogaMat.jpg";
+import weights from "../../../assets/wakeUp.jpg";
 import "./servicespagemonitor.css";
 import BannerMonitor from "../../../components/Banner/BannerMonitor/BannerMonitor";
 import ServiceDisplayMonitor from "../../../components/ServiceDisplay/SDMonitor/ServiceDisplayMonitor";
