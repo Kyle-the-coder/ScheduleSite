@@ -8,6 +8,7 @@ import "./landingpagephone.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SliderPhone } from "../../../components/SliderTextDisplay/SliderPhone/SliderPhone";
+import { Button } from "../../../components/Button/Button";
 
 export function LandingPagePhone() {
   const navigate = useNavigate();
@@ -36,13 +37,13 @@ export function LandingPagePhone() {
         </div>
 
         <div className="landing-page-phone-quote-container">
-          <button
-            onClick={() => handleBookApptButton()}
-            className="m0 landing-page-phone-button"
-            aria-label="Book an appointment for physical therapy"
-          >
-            Book an Appointment
-          </button>
+          <Button
+            bgc="rgb(65, 65, 65)"
+            hoverColor="rgb(140, 43, 179)"
+            fontSize="1.5rem"
+            buttonName="Book An Appointment"
+            nav="/schedule"
+          />
         </div>
 
         <div className="landing-page-top-award-container">
