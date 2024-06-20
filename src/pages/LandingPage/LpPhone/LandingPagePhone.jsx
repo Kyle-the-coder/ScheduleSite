@@ -47,10 +47,13 @@ export function LandingPagePhone() {
         </div>
 
         <div className="landing-page-top-award-container">
-          <h4 className="font1 top-award-text">
-            Sabrina is a top-tier trainer who exceeded my expectations and
-            helped me get my life back." -Wendy H.
-          </h4>
+          <div className="column">
+            <h4 className="font1  top-award-text">
+              Sabrina is a top-tier trainer who exceeded my expectations and
+              helped me get my life back."
+            </h4>
+            <h4 className="m0 font1 f1-2">-Wendy H.</h4>
+          </div>
           <img
             src={top10}
             className="top-award-image"
