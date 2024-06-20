@@ -1,3 +1,4 @@
+import { FormButton } from "../../FormButton/FormButton";
 import "./contactmephone.css";
 
 export default function ContactMePhone() {
@@ -6,7 +7,7 @@ export default function ContactMePhone() {
       <div className="contact-phone-left-display-container">
         <h1 className="m0 font3">
           <span className="darkPinkText">G</span>et In{" "}
-          <span className="greenText">T</span>ouch
+          <span className="purpleText">T</span>ouch
         </h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
@@ -56,7 +57,7 @@ export default function ContactMePhone() {
               />
             </div>
           </div>
-          <button className="contact-phone-button">Contact Me</button>
+          <FormButton buttonName="Contact Me" />
         </form>
       </div>
     </div>

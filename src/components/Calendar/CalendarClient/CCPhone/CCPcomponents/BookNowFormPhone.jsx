@@ -19,6 +19,8 @@ export function BookNowFormPhone({
   const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
   const { isBnActive, setIsBnActive } = useBookNowModal();
+  const parsedDate = parse(dateOfEvent, "MM/dd/yy", new Date());
+  const formattedDate = format(parsedDate, "MMMM d, yyyy");
   const emailId = import.meta.env.VITE_EMAIL_ID;
   const templateId = import.meta.env.VITE_EMAIL_TEMPLATE_ID;
   const emailUserId = import.meta.env.VITE_EMAIL_USER_ID;
@@ -161,7 +163,11 @@ export function BookNowFormPhone({
               <p className="title-phone">Book Appointment </p>
               <div className="book-now-form-input-container-phone">
                 <h2 className="m0">
-                  Time: {displayStartTime}-{displayEndTime}
+                  <span className="f-thin">Date:</span> {formattedDate}
+                </h2>
+                <h2 className="m0">
+                  <span className="f-thin">Time:</span> {displayStartTime}-
+                  {displayEndTime}
                 </h2>
               </div>
               <p className="message-phone">Those marked with * are required </p>
