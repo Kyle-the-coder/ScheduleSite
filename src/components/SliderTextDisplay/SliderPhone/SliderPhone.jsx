@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import "./sliderphone.css";
 import { useNavigate } from "react-router-dom";
+import { Button } from "../../Button/Button";
 
 export function SliderPhone({
   title,
@@ -53,9 +54,15 @@ export function SliderPhone({
           <div className="slider-text-display" ref={ref}>
             {title}
             <p className="font2  m0">{paragraph}</p>
-            <button onClick={() => navigate(nav)} className="slider-button">
-              {buttonName}
-            </button>
+            <Button
+              bgc="rgb(65, 65, 65)"
+              hoverColor="rgb(140, 43, 179)"
+              fontSize=".8rem"
+              marginTop="8%"
+              padding="5px 40px 5px 40px"
+              buttonName={buttonName}
+              nav={nav}
+            />
           </div>
           <div className="slider-img-display">
             <img
@@ -79,9 +86,15 @@ export function SliderPhone({
           <div className="slider-text-display" ref={ref}>
             {title}
             <p className="font2">{paragraph}</p>
-            <button onClick={() => navigate(nav)} className="slider-button">
-              {buttonName}
-            </button>
+            <Button
+              bgc="rgb(65, 65, 65)"
+              hoverColor="rgb(140, 43, 179)"
+              fontSize=".8rem"
+              padding="5px 40px 5px 40px"
+              marginTop="3%"
+              buttonName={buttonName}
+              nav={nav}
+            />
           </div>
         </>
       )}
