@@ -1,10 +1,9 @@
 import React, { Suspense } from "react";
-import { BannerPhone } from "../../../components/Banner/BannerPhone/BannerPhone";
-import weights from "../../../assets/WakeUpWorkout.jpg";
-
+import BannerPhone from "../../../components/Banner/BannerPhone/BannerPhone";
+import weights from "../../../assets/workout.jpg";
 import blueCircle from "../../../assets/record.png";
 import "./schedulepagephone.css";
-import CalendarClientPhone from "../../../components/Calendar/CalendarClient/CCPhone/CCPhone";
+
 const CalendarClient = React.lazy(() =>
   import("../../../components/Calendar/CalendarClient/CCPhone/CCPhone")
 );
@@ -12,7 +11,17 @@ const CalendarClient = React.lazy(() =>
 export function SchedulePagePhone() {
   return (
     <div className="schedule-page-phone-main-container">
-      <BannerPhone bannerImg={weights} />
+      <BannerPhone
+        img={weights}
+        title={
+          <h1 className=" m0 font3 f2-5 text-shadow">
+            <span className="pinkText">S</span>chedule
+          </h1>
+        }
+        desc="Find the right time and day for you"
+        side={true}
+        position="0 47%"
+      />
       <div className="schedule-page-intro-container">
         <h2>
           View my schedule to select an available date and time for your
