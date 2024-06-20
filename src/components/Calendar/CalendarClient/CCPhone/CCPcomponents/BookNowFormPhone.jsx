@@ -134,10 +134,10 @@ export function BookNowFormPhone({
   }
 
   const displayStartTime = timeBlock
-    ? format(parse(timeBlock.startTime, "HH:mm", new Date()), "hh:mm a")
+    ? format(parse(timeBlock.startTime, "HH:mm", new Date()), "h:mm a")
     : "";
   const displayEndTime = timeBlock
-    ? format(parse(timeBlock.endTime, "HH:mm", new Date()), "hh:mm a")
+    ? format(parse(timeBlock.endTime, "HH:mm", new Date()), "h:mm a")
     : "";
 
   return (
