@@ -19,6 +19,8 @@ export function BookNowForm({
   const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
   const { isBnActive, setIsBnActive } = useBookNowModal();
+  const parsedDate = parse(dateOfEvent, "MM/dd/yy", new Date());
+  const formattedDate = format(parsedDate, "MMMM d, yyyy");
   const emailId = import.meta.env.VITE_EMAIL_ID;
   const templateId = import.meta.env.VITE_EMAIL_TEMPLATE_ID;
   const emailUserId = import.meta.env.VITE_EMAIL_USER_ID;
@@ -134,10 +136,10 @@ export function BookNowForm({
   }
 
   const displayStartTime = timeBlock
-    ? format(parse(timeBlock.startTime, "HH:mm", new Date()), "hh:mm a")
+    ? format(parse(timeBlock.startTime, "HH:mm", new Date()), "h:mm a")
     : "";
   const displayEndTime = timeBlock
-    ? format(parse(timeBlock.endTime, "HH:mm", new Date()), "hh:mm a")
+    ? format(parse(timeBlock.endTime, "HH:mm", new Date()), "h:mm a")
     : "";
 
   return (
@@ -159,7 +161,11 @@ export function BookNowForm({
               <p className="title">Book Appointment </p>
               <div className="book-now-form-input-container">
                 <h2 className="m0">
-                  Time: {displayStartTime}-{displayEndTime}
+                  <span className="f-thin">Date:</span> {formattedDate}
+                </h2>
+                <h2 className="m0">
+                  <span className="f-thin">Time:</span> {displayStartTime}-
+                  {displayEndTime}
                 </h2>
               </div>
               <p className="message">Those marked with * are required </p>

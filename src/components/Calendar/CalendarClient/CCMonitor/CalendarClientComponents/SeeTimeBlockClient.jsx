@@ -114,13 +114,13 @@ export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
             isSchedLoaded &&
             dayScheduleList.map((sched, index) => {
               const endTimeParsed = parse(sched.endTime, "HH:mm", new Date());
-              const endTime = format(endTimeParsed, "hh:mm a");
+              const endTime = format(endTimeParsed, "h:mm a");
               const startTimeParsed = parse(
                 sched.startTime,
                 "HH:mm",
                 new Date()
               );
-              const startTime = format(startTimeParsed, "hh:mm a");
+              const startTime = format(startTimeParsed, "h:mm a");
 
               const isSelected =
                 timeBlock &&

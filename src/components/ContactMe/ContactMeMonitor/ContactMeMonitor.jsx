@@ -7,7 +7,7 @@ export default function ContactMeMonitor() {
       <div className="contact-monitor-left-display-container">
         <h1 className="m0 font3">
           <span className="darkPinkText">G</span>et In{" "}
-          <span className="greenText">T</span>ouch
+          <span className="purpleText">T</span>ouch
         </h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus

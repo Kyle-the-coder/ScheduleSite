@@ -130,3 +130,7 @@ body {
 .text-shadow {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
+.f-thin {
+  font-weight: 100;
+}
