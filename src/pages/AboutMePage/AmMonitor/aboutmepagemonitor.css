@@ -6,3 +6,40 @@
   align-items: center;
   margin-bottom: 10%;
 }
+
+.about-me-info-container {
+  width: 60%;
+  margin-top: 15%;
+  border: 2px solid black;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+}
+
+.about-me-headshot {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: -17%;
+  left: -13%;
+}
+
+.about-me-title-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-me-info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 10%;
+}
