@@ -37,18 +37,18 @@
 }
 
 .blue-circle {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
 }
 .pink-circle {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background-color: pink;
 }
 
 .blue-square {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   border: 2px solid blue;
 }

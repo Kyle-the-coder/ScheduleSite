@@ -31,19 +31,21 @@ export function SchedulePageMonitor() {
       </div>
       <div className="schedule-page-key-container">
         <div className="key-container">
-          <h4 className="m0">Key:</h4>
+          <h4 className="m0 f2">Key:</h4>
         </div>
         <div className="key-container">
           <img src={blueCircle} className="blue-circle" />
-          <h4 className="m0">: Appointments available on this day</h4>
+          <h4 className="m0 f1-5 f-thin">
+            : Appointments available on this day
+          </h4>
         </div>
         <div className="key-container">
           <div className="blue-square"></div>
-          <h4 className="m0">: Selected day</h4>
+          <h4 className="m0 f1-5 f-thin">: Selected day</h4>
         </div>
         <div className="key-container">
           <div className="pink-circle"></div>
-          <h4 className="m0">: Today</h4>
+          <h4 className="m0 f1-5 f-thin">: Today</h4>
         </div>
       </div>
 
