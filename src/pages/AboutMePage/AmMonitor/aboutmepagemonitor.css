@@ -8,8 +8,8 @@
 }
 
 .about-me-info-container {
-  width: 60%;
-  margin-top: 15%;
+  width: 80%;
+  margin-top: 10%;
   border: 2px solid black;
   box-sizing: border-box;
   position: relative;
@@ -32,7 +32,7 @@
 }
 
 .about-me-info {
-  width: 100%;
+  width: 90%;
   display: flex;
   align-items: center;
   justify-content: center;

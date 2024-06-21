@@ -13,6 +13,7 @@ export function Button({
   const navigate = useNavigate();
 
   function findNav() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     navigate(nav);
   }
 
