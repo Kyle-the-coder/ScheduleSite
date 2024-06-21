@@ -83,6 +83,9 @@ export function NavbarPhone() {
         duration: 1.2,
         ease: "power3.inOut",
       });
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
     }
   }, [isHamburgerActive]);
 
