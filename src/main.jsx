@@ -5,6 +5,7 @@ import { router } from "./router";
 import { ExtendDateProvider } from "./components/Calendar/calendarContext/ExtendDateContext";
 import { AuthProvider } from "./components/context/AuthProvider";
 import { BookNowProvider } from "./components/context/BookNowModal";
+import ScrollToTop from "./components/ScrollToTop";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
