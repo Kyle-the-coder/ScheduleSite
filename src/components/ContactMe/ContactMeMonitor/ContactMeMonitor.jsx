@@ -58,7 +58,7 @@ export default function ContactMeMonitor() {
             </div>
           </div>
           {/* <button className="contact-monitor-button">Contact Me</button> */}
-          <FormButton buttonName="Contact Me" />
+          <FormButton buttonName="Send Message" />
         </form>
       </div>
     </div>

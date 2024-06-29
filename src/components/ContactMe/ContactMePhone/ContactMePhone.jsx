@@ -57,7 +57,7 @@ export default function ContactMePhone() {
               />
             </div>
           </div>
-          <FormButton buttonName="Contact Me" />
+          <FormButton buttonName="Send Message" />
         </form>
       </div>
     </div>
