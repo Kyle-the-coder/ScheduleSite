@@ -1,7 +1,18 @@
+import { useState } from "react";
 import { FormButton } from "../../FormButton/FormButton";
 import "./contactmemonitor.css";
 
 export default function ContactMeMonitor() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [option, setOption] = useState("");
+  const [message, setMessage] = useState("");
+
+  function sendMessage(e) {
+    e.preventDefault();
+    console.log(name, email, phone, option, message);
+  }
   return (
     <div className="contact-monitor-main-container">
       <div className="contact-monitor-left-display-container">
@@ -18,26 +29,45 @@ export default function ContactMeMonitor() {
         </p>
       </div>
       <div className="contact-monitor-right-form-container">
-        <form className="contact-monitor-form">
+        <form className="contact-monitor-form" onSubmit={sendMessage}>
           <div className="contact-monitor-form-input-container">
             <div className="input-container">
               <label className="f1-5">Name:</label>
-              <input type="text" className="input-field" />
+              <input
+                type="text"
+                className="input-field"
+                onChange={(e) => setName(e.target.value)}
+              />
             </div>
             <div className="input-container">
               <label className="f1-5">Email Address:</label>
-              <input type="text" className="input-field" />
+              <input
+                type="text"
+                className="input-field"
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
           </div>
           <div className="contact-monitor-form-input-container">
             <div className="input-container">
               <label className="f1-5">Phone:</label>
-              <input type="text" className="input-field" />
+              <input
+                type="text"
+                className="input-field"
+                onChange={(e) => setPhone(e.target.value)}
+              />
             </div>
             <div className="input-container">
               <label className="f1-5">Interested In:</label>
-              <select id="choice" className="input-field">
-                <option value="">Select Option</option>
+              <select
+                id="choice"
+                className="input-field"
+                defaultValue=""
+                onChange={(e) => setOption(e.target.value)}
+              >
+                <option value="" disabled hidden>
+                  Select Option
+                </option>
                 <option value="pilates">Pilates</option>
                 <option value="personal training">Personal Training</option>
                 <option value="mobility renewal">Mobility Renewal</option>
@@ -54,6 +84,7 @@ export default function ContactMeMonitor() {
                 cols={10}
                 type="text"
                 style={{ width: "100%" }}
+                onChange={(e) => setMessage(e.target.value)}
               />
             </div>
           </div>
