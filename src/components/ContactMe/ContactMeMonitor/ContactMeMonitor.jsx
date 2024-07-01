@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FormButton } from "../../FormButton/FormButton";
+import emailjs from "emailjs-com";
 import "./contactmemonitor.css";
 
 export default function ContactMeMonitor() {
@@ -8,10 +9,29 @@ export default function ContactMeMonitor() {
   const [phone, setPhone] = useState("");
   const [option, setOption] = useState("");
   const [message, setMessage] = useState("");
+  const emailId = import.meta.env.VITE_EMAIL2_ID;
+  const templateId = import.meta.env.VITE_TEMP2_ID;
+  const emailUserId = import.meta.env.VITE_EMAIL2_USERID;
 
-  function sendMessage(e) {
-    e.preventDefault();
-    console.log(name, email, phone, option, message);
+  function sendMessage() {
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      from_phone: phone,
+      from_option: option,
+      from_message: message,
+    };
+
+    emailjs.send(emailId, templateId, templateParams, emailUserId).then(
+      (response) => {
+        console.log("Email sent successfully!", response.status, response.text);
+      },
+      (error) => {
+        console.error("Failed to send email.", error);
+      }
+    );
+
+    alert("Your message was successfully sent!");
   }
   return (
     <div className="contact-monitor-main-container">
