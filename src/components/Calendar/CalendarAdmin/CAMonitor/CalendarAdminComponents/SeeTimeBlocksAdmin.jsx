@@ -166,7 +166,7 @@ export function SeeTimeBlocksAdmin({ setUpdateTrigger, dateOfEvent }) {
                   style={{
                     backgroundColor: isSelected
                       ? sched.isAvailableAppt
-                        ? "darkGreen"
+                        ? "darkGreen "
                         : "darkRed"
                       : hoveredIndex === index
                       ? sched.isAvailableAppt
@@ -175,8 +175,9 @@ export function SeeTimeBlocksAdmin({ setUpdateTrigger, dateOfEvent }) {
                       : sched.isAvailableAppt
                       ? "lightGreen"
                       : "lightCoral",
+                    color: isSelected ? "white" : "",
                   }}
-                  className="tb-container"
+                  className="new-tb-container"
                   onClick={() => handleTimeBlockClick(sched)}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
