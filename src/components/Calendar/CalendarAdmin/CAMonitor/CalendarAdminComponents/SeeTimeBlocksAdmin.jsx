@@ -170,10 +170,10 @@ export function SeeTimeBlocksAdmin({ setUpdateTrigger, dateOfEvent }) {
                         : "darkRed"
                       : hoveredIndex === index
                       ? sched.isAvailableAppt
-                        ? "rgb(78, 203, 78)"
+                        ? "rgb(65, 209, 108)"
                         : "rgb(200, 62, 62)"
                       : sched.isAvailableAppt
-                      ? "lightGreen"
+                      ? "rgba(93, 223, 132, 0.747)"
                       : "lightCoral",
                     color: isSelected ? "white" : "",
                   }}

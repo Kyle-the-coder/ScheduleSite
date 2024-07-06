@@ -142,7 +142,7 @@ export function CCTimeblockPhone({ setUpdateTrigger, dateOfEvent }) {
                       ? "lightGreen"
                       : "lightCoral",
                   }}
-                  className={`tbc-container-phone ${
+                  className={`new-tb-container ${
                     isSelected ? "selected-tbc-phone" : ""
                   }`}
                   onClick={() => handleTimeBlockClick(sched)}

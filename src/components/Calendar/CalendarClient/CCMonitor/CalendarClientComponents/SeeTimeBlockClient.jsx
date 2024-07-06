@@ -142,7 +142,7 @@ export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
                       ? "lightGreen"
                       : "lightCoral",
                   }}
-                  className={`tbc-container ${
+                  className={`new-tb-container ${
                     isSelected ? "selected-tbc" : ""
                   }`}
                   onClick={() => handleTimeBlockClick(sched)}
