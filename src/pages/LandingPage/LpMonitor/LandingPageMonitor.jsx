@@ -10,12 +10,8 @@ import { useState } from "react";
 import { Button } from "../../../components/Button/Button";
 
 export function LandingPageMonitor() {
-  const navigate = useNavigate();
   const [isFirstRender, setIsFirstRender] = useState(false);
 
-  function handleBookApptButton() {
-    navigate("/schedule");
-  }
   return (
     <div className="landing-page-mont-main-container">
       <div className="landing-page-mont-opening-container">

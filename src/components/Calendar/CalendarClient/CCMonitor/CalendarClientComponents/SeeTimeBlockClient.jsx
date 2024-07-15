@@ -139,8 +139,19 @@ export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
                         ? "rgb(78, 203, 78)"
                         : "rgb(200, 62, 62)"
                       : sched.isAvailableAppt
-                      ? "lightGreen"
-                      : "lightCoral",
+                      ? "white"
+                      : "white",
+                    boxShadow: isSelected
+                      ? sched.isAvailableAppt
+                        ? "0 0 0 2px darkGreen"
+                        : "0 0 0 2px darkRed"
+                      : hoveredIndex === index
+                      ? sched.isAvailableAppt
+                        ? "0 0 0 2px rgb(78, 203, 78)"
+                        : "0 0 0 2px rgb(200, 62, 62)"
+                      : sched.isAvailableAppt
+                      ? "0 0 0 2px green"
+                      : "0 0 0 2px lightCoral",
                   }}
                   className={`new-tb-container ${
                     isSelected ? "selected-tbc" : ""
