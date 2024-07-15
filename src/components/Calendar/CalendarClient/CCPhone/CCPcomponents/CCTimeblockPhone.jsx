@@ -150,7 +150,7 @@ export function CCTimeblockPhone({ setUpdateTrigger, dateOfEvent }) {
                         ? "0 0 0 2px rgb(78, 203, 78)"
                         : "0 0 0 2px rgb(200, 62, 62)"
                       : sched.isAvailableAppt
-                      ? "0 0 0 2px green"
+                      ? "0 0 0 2px rgb(78, 203, 78)"
                       : "0 0 0 2px lightCoral",
                   }}
                   className={`new-tb-container ${
