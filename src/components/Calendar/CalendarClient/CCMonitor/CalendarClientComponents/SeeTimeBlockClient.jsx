@@ -140,7 +140,7 @@ export function SeeTimeBlocksClient({ setUpdateTrigger, dateOfEvent }) {
                         : "rgb(200, 62, 62)"
                       : sched.isAvailableAppt
                       ? "white"
-                      : "white",
+                      : "lightCoral",
                     boxShadow: isSelected
                       ? sched.isAvailableAppt
                         ? "0 0 0 2px darkGreen"
