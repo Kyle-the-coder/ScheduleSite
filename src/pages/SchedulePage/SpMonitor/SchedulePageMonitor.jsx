@@ -45,7 +45,7 @@ export function SchedulePageMonitor() {
         </div>
         <div className="key-container">
           <div className="pink-circle"></div>
-          <h4 className="m0 f1-5 f-thin">: Today</h4>
+          <h4 className="m0 f1-5 f-thin">: Current Day</h4>
         </div>
       </div>
 
